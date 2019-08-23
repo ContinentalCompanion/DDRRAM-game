@@ -1,0 +1,18 @@
+{
+    "compilerOptions":
+    {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": ["es2017", "dom"],
+        "downlevelIteration": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "typeRoots": ["src/lib/node_modules/@types"],
+        "outDir": "build/app"
+    },
+
+    "references":
+    [
+        { "path": "./src/app" }
+    ]
+}

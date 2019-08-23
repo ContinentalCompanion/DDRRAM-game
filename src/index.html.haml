@@ -1,0 +1,184 @@
+﻿!!! 5
+%html(lang="en")
+
+%head
+    / Meta Tags Generated via http://heymeta.com
+    / HTML Meta Tags
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
+    %meta(name="twitter:title" content="Drummer Dreamer Reamer Reader and Memer")
+    %meta(name="keywords" content="")
+    %meta(name="author" content="Christien Ayson")
+
+    %meta(name="description" content="A light sim game. You must create ten sound design memes to escape your parents' basement.")
+
+    / Google / Search Engine Tags
+    %title Drummer Dreamer Reamer Reader and Memer
+    %link(rel="icon" type="image/x-icon" href="favicon.ico")
+    %link(rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png")
+    %link(rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png")
+    %link(rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png")
+    %link(rel="mask-icon" href="safari-pinned-tag.svg" color="#ff8c00")
+    %meta(name="msapplication-TileColor" content="#ff8c00")
+    %base(href="")
+
+    / TO-DO: PWA
+    %link(rel="manifest" href="manifest.webmanifest")
+    %meta(name="theme-color" content="#FF8C00")
+
+    / Prefetch/Preconnect
+    %link(rel="dns-prefetch" href="//fonts.googleapis.com")
+    %link(rel="preconnect" href="//fonts.googleapis.com" crossorigin="anonymous")
+    %link(rel="dns-prefetch" href="//kit.fontawesome.com")
+    %link(rel="preconnect" href="//kit.fontawesome.com" crossorigin="anonymous")
+
+    / Fonts/Icons/Stylesheet
+    %link(href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet")
+    %script(src="https://kit.fontawesome.com/0258de4d9a.js")
+    %link(rel="stylesheet" href="global-styles/stylesheet.css")
+
+    / Libraries/Modules
+    %script var exports = {};
+
+    / TO-DO: Global Site Tag (gtag.js) - Google Analytics
+
+
+
+%body
+#windowContainer
+    <!----------------------->
+    <!-- Game World Screen -->
+    <!----------------------->
+    #gameWorldScreen
+
+        #dialogBoxContainer
+            #dialogBox
+                %i#dialogBoxIcon.fas.fa-paint-brush
+                %p#dialogBoxText
+
+        .gameButtonVerticalGroup
+
+            #attemptMemeButton.gameButton.tooltipHover(onclick="attemptMeme()")
+                .tooltipBox.gameButtonTooltipPosition
+                    %span.tooltipText
+                        Spend the day<br>
+                        attempting to meme.<br>
+                        Success chance can be<br>
+                        improved by Train Memery.
+                %i.gameButtonIcon.fas.fa-paint-brush
+                %p.gameButtonTitle Attempt Meme
+
+            #trainMemeryButton.class.gameButton.tooltipHover(onclick="trainMemery()")
+                .tooltipBox.gameButtonTooltipPosition
+                    %span.tooltipText
+                        Spend the day<br>
+                        improving memery skills.<br>
+                        Increases Attempt Meme<br>
+                        success chance by 2%.
+                %i.gameButtonIcon.fas.fa-biking
+                %p.gameButtonTitle Train Memery
+
+            #workButton.gameButton.tooltipHover(onclick="work()")
+                .tooltipBox.gameButtonTooltipPosition
+                    %span.tooltipText
+                        Go to work for the day.<br>
+                        Earns money equal<br>
+                        to your salary.
+                %i.gameButtonIcon.fas.fa-briefcase
+                %p.gameButtonTitle Work
+
+            #attemptEducationButton.gameButton.tooltipHover(onclick="attemptEducation()")
+                .tooltipBox.gameButtonTooltipPosition
+                    %span.tooltipText
+                        Spend the day attempting<br>
+                        to improve your career.<br>
+                        25% chance to increase<br>
+                        salary by $2.
+                %i.gameButtonIcon.fas.fa-book
+                %p.gameButtonTitle Attempt Education
+
+
+    <!------------------>
+    <!-- Inventory UI -->
+    <!------------------>
+    #inventoryUI
+
+        .inventoryBlock
+            %h1.inventoryTitle Memes
+            .horizontalGroup
+
+                .inventoryIconGroup.tooltipHover
+                    %i.inventoryIcon.fas.fa-clipboard-check
+                    %p#memesCounter.inventoryCounter
+                    .tooltipBox.inventoryTooltipPosition
+                        %span.tooltipText
+                            <b>Memes</b><br>
+                            Number of memes created.<br>
+                            Create 10 to win.
+
+                .inventoryIconGroup.tooltipHover
+                    %i.inventoryIcon.fas.fa-wheelchair
+                    %p#memeChanceCounter.inventoryCounter
+                    .tooltipBox.inventoryTooltipPosition
+                        %span.tooltipText
+                            <b>Memery Skill</b><br>
+                            Chance to create a meme.<br>
+                            Improved by Train Memery.
+
+        .inventoryBlock
+            %h1.inventoryTitle Cash
+            .horizontalGroup
+
+                .inventoryIconGroup.tooltipHover
+                    %i.inventoryIcon.fas.fa-coins
+                    %p#cashCounter.inventoryCounter
+                    .tooltipBox.inventoryTooltipPosition
+                        %span.tooltipText
+                            <b>Cash</b><br>
+                            Current cash.<br>
+                            Used to pay bills.
+
+                .inventoryIconGroup.tooltipHover
+                    %i.inventoryIcon.fas.fa-business-time
+                    %p#salaryCounter.inventoryCounter
+                    .tooltipBox.inventoryTooltipPosition
+                        %span.tooltipText
+                            <b>Salary</b><br>
+                            Money earned from Working.<br>
+                            Improved by Attempt Education.
+
+        .inventoryBlock
+            %h1.inventoryTitle Stats
+            .horizontalGroup
+
+                .inventoryIconGroup.tooltipHover
+                    %i.inventoryIcon.fas.fa-shopping-basket
+                    %p#billsCounter.inventoryCounter
+                    .tooltipBox.inventoryTooltipPosition
+                        %span.tooltipText
+                            <b>Bills</b><br>
+                            Amount due every week.<br>
+                            Failure to pay results in defeat.
+
+                .inventoryIconGroup.tooltipHover
+                    %i.inventoryIcon.fas.fa-money-check
+                    %p#raiseCounter.inventoryCounter
+                    .tooltipBox.inventoryTooltipPosition
+                        %span.tooltipText
+                            <b>Raise Amount</b><br>
+                            Amount your salary increases<br>
+                            from Attempt Education.
+
+                .inventoryIconGroup.tooltipHover
+                    %i.inventoryIcon.fas.fa-fax
+                    %p#raiseChanceCounter.inventoryCounter
+                    .tooltipBox.inventoryTooltipPosition
+                        %span.tooltipText
+                            <b>Raise Chance</b><br>
+                            Chance to increase salary<br>
+                            with Attempt Education.
+
+    <!--------------->
+    <!-- The Game! -->
+    <!--------------->
+    %script(type="text/javascript" src="app/app-bundle.js")

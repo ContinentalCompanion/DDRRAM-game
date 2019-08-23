@@ -1,0 +1,2 @@
+all icons and meta images: Font Awesome Free
+https://fontawesome.com/license

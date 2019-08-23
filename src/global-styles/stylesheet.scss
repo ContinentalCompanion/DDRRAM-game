@@ -1,0 +1,358 @@
+/*****************/
+/* CSS Variables */
+/*****************/
+
+
+
+////////////////////
+// SASS Variables //
+////////////////////
+
+// Static Window Size Variables
+$breakpointStaticWidth: 640px;
+$breakpointStaticHeight: 480px;
+$percentMarginWidth: 0.025;
+$percentMarginHeight: 0.025;
+$percentWindowWidth: 1 - (2 * $percentMarginWidth);
+$percentWindowHeight: 1 - (2 * $percentMarginHeight);
+
+// Margins 
+$marginDefault: 4px;
+$marginBig: 8px;
+$marginInlineOffset: -4px;
+
+// Paddings
+$paddingDefault: 8px;
+$paddingSmall: 2px;
+
+// Borders
+$borderDefault: 2px solid black;
+$borderSmall: 1px solid black;
+$roundedBorderDefault: 5px;
+
+// Fonts
+$fontTitleBig: small-caps 30px "Lexend Deca", sans-serif;
+$fontTitleSmall: small-caps 14px "Lexend Deca", sans-serif;
+$fontDescription: 8px "Lexend Deca", sans-serif;
+$fontCounter: small-caps 12px "Lexend Deca", sans-serif;
+
+// UI Variables
+$inventoryHeight: 87px;
+$inventoryHorizontalGroupHeight: 29px;
+$inventoryTooltipHeight: 50px;
+$gameButtonWidth: 140px;
+$gameButtonTitleHeight: 18px;
+$dialogBoxWidth: 220px;
+$dialogBoxHeight: 70px;
+$dialogBoxTextHeight: 18px;
+
+
+//////////////////
+// SASS Mix-ins //
+//////////////////
+
+
+
+/*****************/
+/* Media Queries */
+/*****************/
+
+/* Scale window size to viewport size if at least 640x480 */
+/* Otherwise, lock window size to 640 x 480 (including margins) */
+@media (min-width: #{$breakpointStaticWidth}) {
+    :root {
+        --viewportWidth: 100vw;
+        --windowWidth: #{$percentWindowWidth * 100}vw;
+        --windowMarginWidth: #{$percentMarginWidth * 100}vw;
+    }
+}
+
+@media (min-height: #{$breakpointStaticHeight}) {
+    :root {
+        --viewportHeight: 100vh;
+        --windowHeight: #{$percentWindowHeight * 100}vh;
+        --windowMarginHeight: #{$percentMarginHeight * 100}vh;
+    }
+}
+
+@media (max-width: #{($breakpointStaticWidth) - 1}) {
+    :root {
+        --viewportWidth: #{$breakpointStaticWidth};
+        --windowWidth: #{$percentWindowWidth * $breakpointStaticWidth};
+        --windowMarginWidth: #{$percentMarginWidth * $breakpointStaticWidth};
+    }
+}
+
+@media (max-height: #{($breakpointStaticHeight) - 1}) {
+    :root {
+        --viewportHeight: #{$breakpointStaticHeight};
+        --windowHeight: #{$percentWindowHeight * $breakpointStaticHeight};
+        --windowMarginHeight: #{$percentMarginHeight * $breakpointStaticHeight};
+    }
+}
+
+
+/************/
+/* Defaults */
+/************/
+
+div {
+    cursor: default;
+}
+
+* { /* Disable highlighting text */
+    /* Source: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+    -webkit-touch-callout: none; /* iOS Safari                      */
+    -webkit-user-select: none;   /* Safari                          */
+    -khtml-user-select: none;    /* Konqueror HTML                  */
+    -moz-user-select: none;      /* Firefox                         */
+    -ms-user-select: none;       /* Internet Explorer/Edge          */
+    user-select: none;           /* Non-prefixed version, currently
+                                    supported by Chrome and Opera   */
+}
+
+
+/********************************/
+/* General HTML Building Blocks */
+/********************************/
+
+.horizontalGroup {
+    display: flex;
+
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+
+/***************/
+/* Window Size */
+/***************/
+
+:root {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: var(--viewportWidth);
+    height: var(--viewportHeight);
+    box-sizing: border-box;
+    overflow: hidden;
+
+    margin: 0;
+    padding: var(--windowMarginHeight) var(--windowMarginWidth) var(--windowMarginHeight) var(--windowMarginWidth);
+}
+
+#windowContainer {
+    width: var(--windowWidth);
+    height: var(--windowHeight);
+}
+
+
+/*********************/
+/* Game World Screen */
+/*********************/
+
+#gameWorldScreen {
+    width: 100%;
+    height: calc(100% - #{$inventoryHeight} - #{$marginDefault});
+    box-sizing: border-box;
+
+    margin-bottom: $marginDefault;
+
+    border: $borderDefault;
+}
+
+#dialogBoxContainer {
+    position: absolute;
+    
+    margin-top: $marginDefault;
+    margin-left: calc(50% - (#{$dialogBoxWidth} / 2));
+    
+    z-index: 20;
+}
+
+#dialogBox {
+    width: $dialogBoxWidth;
+    height: $dialogBoxHeight;
+    box-sizing: border-box;
+
+    display: flex;
+
+    /* Used to horizontally center dialogBoxText, since justify-self is */
+    /* ignored in flexbox layouts */
+    justify-content: center;
+    -webkit-justify-content: center;
+
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: lightsteelblue;
+
+    opacity: 0;
+}
+
+#dialogBoxIcon {
+    position: absolute;
+    align-self: flex-start;
+    -webkit-align-self: flex-start;
+    left: $paddingDefault;
+}
+
+#dialogBoxText {
+    position: absolute;
+    align-self: flex-end;
+    -webkit-align-self: flex-end;
+
+    margin: 0;
+
+    font: $fontTitleSmall;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/**************/
+/* General UI */
+/**************/
+
+.tooltipBox {
+    position: relative;
+    
+    visibility: hidden;
+    z-index: 10;
+}
+
+.tooltipText {
+    position: absolute;
+
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: lightsteelblue;
+
+    font: $fontDescription;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tooltipHover:hover .tooltipBox {
+    visibility: visible;
+}
+
+
+/****************/
+/* Inventory UI */
+/****************/
+
+#inventoryUI {
+    height: $inventoryHeight;
+    
+    display: flex;
+
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+.inventoryTitle {
+    margin: 0;
+    padding: 0;
+
+    font: $fontTitleBig;
+    text-align: center;
+}
+
+.inventoryIconGroup {
+    margin: $marginDefault $marginDefault;
+}
+
+.inventoryIcon {
+    display: inline-block;
+}
+
+.inventoryCounter {
+    display: inline-block;
+
+    margin: 0 #{$marginDefault + $marginInlineOffset};
+    padding: $paddingSmall;
+    
+    border: $borderSmall;
+    border-radius: $roundedBorderDefault;
+
+    font: $fontCounter;
+}
+
+.inventoryBlock {
+    margin-left: $marginDefault;
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+}
+
+.inventoryTooltipPosition {
+    right: 60%;
+    bottom: $inventoryTooltipHeight + $inventoryHorizontalGroupHeight;
+}
+
+
+/******************/
+/* Game Screen UI */
+/******************/
+
+.gameButtonVerticalGroup {
+    height: calc(100% - #{$marginDefault * 5}); // 5 shared margins between 4 buttons
+    
+    z-index: 0;
+}
+
+.gameButton {
+    width: $gameButtonWidth;
+    height: 25%;
+    box-sizing: border-box;
+
+    display: flex;
+
+    margin: $marginDefault;
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: darkseagreen;
+    
+    z-index: 50;
+}
+
+.gameButtonTitle {
+    height: $gameButtonTitleHeight;
+    
+    align-self: flex-end;
+    -webkit-align-self: flex-end;
+
+    margin: 0;
+
+    font: $fontTitleSmall;
+    text-align: center;
+    white-space: nowrap;
+
+    z-index: 0;
+}
+
+.gameButtonIcon {
+    position: absolute;
+    align-self: flex-start;
+    -webkit-align-self: flex-start;
+
+    z-index: 1;
+}
+
+.gameButtonTooltipPosition {
+    bottom: 10px;
+    left: $gameButtonWidth;
+}

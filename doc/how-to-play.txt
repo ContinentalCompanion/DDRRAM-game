@@ -1,0 +1,11 @@
+A light sim game created to help me learn web development.
+You must create ten sound design memes to escape your parents' basement (victory).
+You must pay $30 in bills every week or lose your MemeNet account (defeat).
+
+Every day you can take one of four actions:
+Attempt Meme, Train Memery, Work, Attempt Education.
+
+Attempt Meme: Has a 10% chance to create a meme.
+Train Memery: Increases the success chance of Attempt Meme by 2%.
+Work: Earn $8.
+Attempt Education: 25% chance to increase salary from working by $2.

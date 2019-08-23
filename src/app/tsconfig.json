@@ -1,0 +1,19 @@
+{
+    "compilerOptions":
+    {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": ["es2017", "dom"],
+        "downlevelIteration": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "typeRoots": ["../lib/node_modules/@types"],
+        "composite": true,
+        "outDir": "../../build/app"
+    },
+
+    "files": [
+        "app.ts",
+        "animation.ts"
+    ]
+}

@@ -1,0 +1,5 @@
+root=../../
+src=../../src
+lib=../../lib
+app=../../build/app
+build=../../build
