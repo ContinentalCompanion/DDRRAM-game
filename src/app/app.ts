@@ -1,3 +1,11 @@
+/////////////
+// Imports //
+/////////////
+
+import { popUpDialogBoxAnim } from "./animation";
+import * as gameTime from "./gameTime";
+
+
 ////////////////////
 // Game Letiables //
 ////////////////////
@@ -14,6 +22,12 @@ let salary: number = 8;
 let bills: number = 30;
 let raise: number = 2;
 let raiseChance: number = 0.25;
+
+// Game Time
+let startingMonth: number = 4;
+let startingDay: number = 20;
+let startingYear: number = 1969;
+let gameDate: gameTime.date = new gameTime.date(startingMonth, startingDay, startingYear);
 
 
 //////////////////
@@ -59,13 +73,6 @@ let attemptMemeIcon: string = "fas fa-paint-brush";
 let trainMemeryIcon: string = "fas fa-biking";
 let workIcon: string = "fas fa-briefcase";
 let educationIcon: string = "fas fa-book";
-
-
-/////////////
-// Imports //
-/////////////
-
-import { popUpDialogBoxAnim } from "./animation";
 
 
 //////////
@@ -123,7 +130,15 @@ function addGameButtonListeners() {
 }
 
 function gameLoop() {
+	cash = gameTime.progressTime(gameDate, cash, bills);
 	updateUI();
+
+	if (cash < 0)
+		defeat();
+}
+
+function defeat() {
+	console.log("Game over!");
 }
 
 
