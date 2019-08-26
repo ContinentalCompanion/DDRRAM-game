@@ -1,5 +1,5 @@
 ﻿!!! 5
-%html(lang="en")
+%html(lang="en" ng-app)
 
 %head
     / Meta Tags Generated via http://heymeta.com
@@ -39,6 +39,7 @@
 
     / Libraries/Modules
     %script var exports = {};
+    %script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js")
 
     / TO-DO: Global Site Tag (gtag.js) - Google Analytics
 
@@ -58,7 +59,7 @@
 
         .gameButtonVerticalGroup
 
-            #attemptMemeButton.gameButton.tooltipHover(onclick="attemptMeme()")
+            #attemptMemeButton.gameButton.tooltipHover
                 .tooltipBox.gameButtonTooltipPosition
                     %span.tooltipText
                         Spend the day<br>
@@ -68,7 +69,7 @@
                 %i.gameButtonIcon.fas.fa-paint-brush
                 %p.gameButtonTitle Attempt Meme
 
-            #trainMemeryButton.class.gameButton.tooltipHover(onclick="trainMemery()")
+            #trainMemeryButton.gameButton.tooltipHover
                 .tooltipBox.gameButtonTooltipPosition
                     %span.tooltipText
                         Spend the day<br>
@@ -78,7 +79,7 @@
                 %i.gameButtonIcon.fas.fa-biking
                 %p.gameButtonTitle Train Memery
 
-            #workButton.gameButton.tooltipHover(onclick="work()")
+            #workButton.gameButton.tooltipHover
                 .tooltipBox.gameButtonTooltipPosition
                     %span.tooltipText
                         Go to work for the day.<br>
@@ -87,7 +88,7 @@
                 %i.gameButtonIcon.fas.fa-briefcase
                 %p.gameButtonTitle Work
 
-            #attemptEducationButton.gameButton.tooltipHover(onclick="attemptEducation()")
+            #attemptEducationButton.gameButton.tooltipHover
                 .tooltipBox.gameButtonTooltipPosition
                     %span.tooltipText
                         Spend the day attempting<br>

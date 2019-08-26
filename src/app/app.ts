@@ -35,6 +35,11 @@ let dialogBox: HTMLElement = document.getElementById("dialogBox");
 let dialogBoxIcon: HTMLElement = document.getElementById("dialogBoxIcon");
 let dialogBoxText: HTMLElement = document.getElementById("dialogBoxText");
 
+let attemptMemeButton: HTMLElement = document.getElementById("attemptMemeButton");
+let trainMemeryButton: HTMLElement = document.getElementById("trainMemeryButton");
+let workButton: HTMLElement = document.getElementById("workButton");
+let attemptEducationButton: HTMLElement = document.getElementById("attemptEducationButton");
+
 // Style
 let successColor: string = "lightgreen";
 let failColor: string = "tomato";
@@ -110,6 +115,13 @@ function attemptEducation() {
 	}
 }
 
+function addGameButtonListeners() {
+	attemptMemeButton.addEventListener("click", attemptMeme, false);
+	trainMemeryButton.addEventListener("click", trainMemery, false);
+	workButton.addEventListener("click", work, false);
+	attemptEducationButton.addEventListener("click", attemptEducation, false);
+}
+
 function gameLoop() {
 	updateUI();
 }
@@ -165,4 +177,4 @@ function uiTestMax() {
 //////////
 
 initUI();
-
+addGameButtonListeners();
