@@ -1,9 +1,25 @@
-////////////////////
-// Public Classes //
-////////////////////
+/////////////////////////////////////////////
+//               gameTime.ts               //
+// --------------------------------------- //
+// Author: Christien Ayson                 //
+// Description: Keeps track of time during //
+//   game loops                            //
+//                                         //
+/////////////////////////////////////////////
 
-// Game Time
-export class date {
+
+/////////////
+// Imports //
+/////////////
+
+import { gameLets } from "./app";
+
+
+/////////////////////////
+// Game Time Letiables //
+/////////////////////////
+
+class date {
 	month: number;
 	day: number;
 	year: number;
@@ -15,26 +31,32 @@ export class date {
 	}
 }
 
+export let gameDate;
+export let daysElapsed = 0;
+
+
+//////////
+// Init //
+//////////
+
+export function initDate(month: number, day: number, year: number) {
+    gameDate = new date(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
+}
+
 
 ///////////////
-// Letiables //
+// Game Loop //
 ///////////////
 
-let daysElapsed: number = 0;
-
-
-//////////////////////
-// Public Functions //
-//////////////////////
-
-export function progressTime(date: date, cash: number, bills: number) {
-    date.day++;
+export function progressTime() {
+    gameDate.day++;
     daysElapsed++;
+    let newCash = gameLets.cash;
 
     // Pay bills every week
     if (daysElapsed % 7 == 0)
-        cash -= bills;
+        newCash -= gameLets.bills;
 
     // Negative cash = defeat
-    return cash;
+    return newCash;
 }

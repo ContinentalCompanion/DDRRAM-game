@@ -1,139 +1,85 @@
+/////////////////////////////////////////////
+//                  app.ts                 //
+// --------------------------------------- //
+// Author: Christien Ayson                 //
+// Description: Main app file              //
+//                                         //
+/////////////////////////////////////////////
+
+
 /////////////
 // Imports //
 /////////////
 
-import { popUpDialogBoxAnim } from "./animation";
 import * as gameTime from "./gameTime";
+import * as game from "./game";
+import * as ui from "./ui";
 
 
 ////////////////////
 // Game Letiables //
 ////////////////////
 
-// Inventory
-let memes: number = 0;
-let cash: number = 0;
+export let gameLets = {
+	// Inventory
+	memes: 0,
+	cash: 0,
 
-// Trainable Stats
-let memeChance: number = 0.1;
-let salary: number = 8;
+	// Trainable Stats
+	memeChance: 0.1,
+	salary: 8,
 
-// Static letiables
-let bills: number = 30;
-let raise: number = 2;
-let raiseChance: number = 0.25;
+	// Static letiables
+	bills: 30,
+	raise: 2,
+	raiseChance: 0.25,
+	memeChanceIncrease: 0.02,
 
-// Game Time
-let startingMonth: number = 4;
-let startingDay: number = 20;
-let startingYear: number = 1969;
-let gameDate: gameTime.date = new gameTime.date(startingMonth, startingDay, startingYear);
+	// Game Time
+	startingMonth: 4,
+	startingDay: 20,
+	startingYear: 1969
+
+}
 
 
 //////////////////
 // UI Letiables //
 //////////////////
 
-// Document elements
-let memesCounter: HTMLElement = document.getElementById("memesCounter");
-let cashCounter: HTMLElement = document.getElementById("cashCounter");
+export let uiLets = {
+	// Style
+	successColor: "lightgreen",
+	failColor: "tomato",
+	neutralColor: "lightsteelblue",
 
-let memeChanceCounter: HTMLElement = document.getElementById("memeChanceCounter");
-let salaryCounter: HTMLElement = document.getElementById("salaryCounter");
+	// Dialog box text
+	memeSuccessText: "<b>Meme Success!</b>",
+	memeFailureText: "<b>Meme Failure...</b>",
+	trainMemeryText: "<b>Memery Skill Increased!</b><br>+" + (gameLets.memeChanceIncrease * 100).toString() + "% meme chance",
+	trainMemeryErrorText: "<b>Can't Train Memery!</b><br>Your memery skill is maxed",
+	workText: "<b>Work Complete!</b><br>$" + gameLets.salary.toString() + " earned",
+	educationSuccessText: "<b>Education Successful!</b><br>Salary increased by $" + gameLets.raise.toString(),
+	educationFailureText: "<b>Education Failure...</b>",
 
-let billsCounter: HTMLElement = document.getElementById("billsCounter");
-let raiseCounter: HTMLElement = document.getElementById("raiseCounter");
-let raiseChanceCounter: HTMLElement = document.getElementById("raiseChanceCounter");
-
-let dialogBox: HTMLElement = document.getElementById("dialogBox");
-let dialogBoxIcon: HTMLElement = document.getElementById("dialogBoxIcon");
-let dialogBoxText: HTMLElement = document.getElementById("dialogBoxText");
-
-let attemptMemeButton: HTMLElement = document.getElementById("attemptMemeButton");
-let trainMemeryButton: HTMLElement = document.getElementById("trainMemeryButton");
-let workButton: HTMLElement = document.getElementById("workButton");
-let attemptEducationButton: HTMLElement = document.getElementById("attemptEducationButton");
-
-// Style
-let successColor: string = "lightgreen";
-let failColor: string = "tomato";
-let neutralColor: string = "lightsteelblue";
-
-// Dialog box text
-let memeSuccessText: string = "<b>Meme Success!</b>";
-let memeFailureText: string = "<b>Meme Failure...</b>";
-let trainMemeryText: string = "<b>Memery Skill Increased!</b><br>+2% meme chance";
-let trainMemeryErrorText: string = "<b>Can't Train Memery!</b><br>Your memery skill is maxed";
-let workText: string = "<b>Work Complete!</b><br>$" + salary.toString() + " earned";
-let educationSuccessText: string = "<b>Education Successful!</b><br>Salary increased by $" + raise.toString();
-let educationFailureText: string = "<b>Education Failure...</b>";
-
-// Dialog box icons
-let attemptMemeIcon: string = "fas fa-paint-brush";
-let trainMemeryIcon: string = "fas fa-biking";
-let workIcon: string = "fas fa-briefcase";
-let educationIcon: string = "fas fa-book";
+	// Dialog box icons
+	attemptMemeIcon: "fas fa-paint-brush",
+	trainMemeryIcon: "fas fa-biking",
+	workIcon: "fas fa-briefcase",
+	educationIcon: "fas fa-book"
+}
 
 
 //////////
 // Game //
 //////////
 
-function attemptMeme() {
-	if (Math.random() < memeChance) {
-		memes += 1;
-		showDialogBox(memeSuccessText, successColor, attemptMemeIcon);
-		gameLoop();
-	}
 
-	else {
-		showDialogBox(memeFailureText, failColor, attemptMemeIcon);
-		gameLoop();
-	}
-}
+export function gameLoop() {
+	gameLets.cash = gameTime.progressTime();
+	ui.updateInvUI();
 
-function trainMemery() {
-	if (memeChance >= 1.0) {
-		showDialogBox(trainMemeryErrorText, neutralColor, trainMemeryIcon);
-	}
-
-	else {
-		memeChance += 0.02;
-		showDialogBox(trainMemeryText, successColor, trainMemeryIcon);
-		gameLoop();
-	}
-}
-
-function work() {
-	cash += salary;
-	showDialogBox(workText, successColor, workIcon);
-	gameLoop();
-}
-
-function attemptEducation() {
-	if (Math.random() < raiseChance) {
-		salary += raise;
-		showDialogBox(educationSuccessText, successColor, educationIcon);
-		gameLoop();
-	}
-	else {
-		showDialogBox(educationFailureText, failColor, educationIcon);
-		gameLoop();
-	}
-}
-
-function addGameButtonListeners() {
-	attemptMemeButton.addEventListener("click", attemptMeme, false);
-	trainMemeryButton.addEventListener("click", trainMemery, false);
-	workButton.addEventListener("click", work, false);
-	attemptEducationButton.addEventListener("click", attemptEducation, false);
-}
-
-function gameLoop() {
-	cash = gameTime.progressTime(gameDate, cash, bills);
-	updateUI();
-
-	if (cash < 0)
+	if (gameLets.cash < 0)
 		defeat();
 }
 
@@ -142,54 +88,10 @@ function defeat() {
 }
 
 
-////////
-// UI //
-////////
-
-// Initialize UI to default values
-function initUI() {
-	billsCounter.innerHTML = "$" + Math.round(bills).toString();
-	raiseCounter.innerHTML = "$" + Math.round(raise).toString();
-	raiseChanceCounter.innerHTML = Math.round(raiseChance * 100).toString() + "%";
-
-	updateUI();
-}
-
-// Update UI counters
-function updateUI() {
-	memesCounter.innerHTML = Math.round(memes).toString();
-	memeChanceCounter.innerHTML = Math.round(memeChance * 100).toString() + "%";
-	cashCounter.innerHTML = "$" + Math.round(cash).toString();
-	salaryCounter.innerHTML = "$" + Math.round(salary).toString();
-    return;
-}
-
-// Update dialog box text and show dialog box
-function showDialogBox(text: string = "", color: string = neutralColor, icon: string = "") {
-	dialogBoxText.innerHTML = text;
-	dialogBox.style.backgroundColor = color;
-	dialogBoxIcon.className = icon;
-
-	popUpDialogBoxAnim();
-}
-
-
-///////////
-// Debug //
-///////////
-
-// Set values to max for UI testing
-function uiTestMax() {
-    memes = 10;
-    cash = 8888;
-    memeChance = 1;
-    salary = 8888;
-}
-
-
 //////////
 // Main //
 //////////
 
-initUI();
-addGameButtonListeners();
+gameTime.initDate(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
+ui.initInvUI();
+game.addGameButtonListeners();

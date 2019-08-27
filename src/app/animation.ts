@@ -1,9 +1,9 @@
 /////////////////////////////////////////////
-//              animation.js               //
+//              animation.ts               //
 // --------------------------------------- //
 // Author: Christien Ayson                 //
 // Description: Interval based animations  //
-//	                                       //
+//                                         //
 /////////////////////////////////////////////
 
 
@@ -13,16 +13,16 @@
 
 // Animation template
 class anim {
-	object: HTMLElement;
-	tickDelay: number;
-	tickCount: number[];
-	sequence: string[]
+	object: HTMLElement; // Object animated
+	tickDelay: number;   // ms between each anim frame
+	tickCount: number[]; // # of frames in each anim sequence
+	sequence: string[];  // list of anim sequences
 	
 	constructor(object: HTMLElement, tickDelay: number, tickCount: number[], sequence: string[]) {
-		this.object = object;       // Object animated
-		this.tickDelay = tickDelay; // ms between each anim frame
-		this.tickCount = tickCount; // # of frames in each anim sequence
-		this.sequence = sequence;   // list of anim sequences
+		this.object = object;
+		this.tickDelay = tickDelay;
+		this.tickCount = tickCount;
+		this.sequence = sequence;
 	}
 
 	// Loop letiables
@@ -33,30 +33,22 @@ class anim {
 }
 
 
-///////////////
-// Letiables //
-///////////////
+////////////////
+// Animations //
+////////////////
 
-// Animation templates
-let popUpDialogBox: anim = new anim(
+let popUpDialogBox = new anim(
 	document.getElementById("dialogBox"), // Object animated
 	33,                                   // ms between each anim frame
 	[8, 32, 8, null],                     // # of frames in each anim sequence
 	["fadeIn", "pause", "fadeOut", null]) // list of anim sequences
 
-
-//////////////////////
-// Public Functions //
-//////////////////////
-
-export function popUpDialogBoxAnim() {
-	beginAnim(popUpDialogBox);
-}
+export function popUpDialogBoxAnim() { beginAnim(popUpDialogBox); }
 
 
-///////////////////////
-// Private Functions //
-///////////////////////
+/////////////////////////
+// Animation Framework //
+/////////////////////////
 
 // Coroutine wrapper
 function beginAnim(animType: anim) {
