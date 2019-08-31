@@ -19,11 +19,14 @@ exit /b 0
 
 
 :compileHamlFile
-    :: Compiles all files in /src to same directory as compiled file
+    :: Compiles all files in /src to /%buildpath%
     set "hamlPath=%~dpf1"
-    set "htmlOut=%hamlPath:.haml=%"
+    call set "htmlOut=%%hamlPath:%srcPath%=%%"
+    call set "htmlOut=%buildPath%%htmlOut:.haml=%"
     set "fileName=%~nx1"
+    for %%K in ("%htmlOut%\..") do set "buildDir=%%~dpfK"
 
     echo -- Compiling [%fileName%]...
+    IF NOT EXIST %buildDir% MD %buildDir%
     call haml %hamlPath% %htmlOut%
     exit /b 0

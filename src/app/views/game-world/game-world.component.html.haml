@@ -1,0 +1,136 @@
+﻿<!----------------------->
+<!-- Game World Screen -->
+<!----------------------->
+#gameWorldScreen
+
+    #dialogBoxContainer
+        #dialogBox
+            %i#dialogBoxIcon.fas.fa-paint-brush
+            %p#dialogBoxText
+
+    .gameButtonVerticalGroup
+
+        #attemptMemeButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipPosition
+                %span.tooltipText
+                    Spend the day<br>
+                    attempting to meme.<br>
+                    Success chance can be<br>
+                    improved by Train Memery.
+            %i.gameButtonIcon.fas.fa-paint-brush
+            %p.gameButtonTitle Attempt Meme
+
+        #trainMemeryButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipPosition
+                %span.tooltipText
+                    Spend the day<br>
+                    improving memery skills.<br>
+                    Increases Attempt Meme<br>
+                    success chance by 2%.
+            %i.gameButtonIcon.fas.fa-biking
+            %p.gameButtonTitle Train Memery
+
+        #workButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipPosition
+                %span.tooltipText
+                    Go to work for the day.<br>
+                    Earns money equal<br>
+                    to your salary.
+            %i.gameButtonIcon.fas.fa-briefcase
+            %p.gameButtonTitle Work
+
+        #attemptEducationButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipPosition
+                %span.tooltipText
+                    Spend the day attempting<br>
+                    to improve your career.<br>
+                    25% chance to increase<br>
+                    salary by $2.
+            %i.gameButtonIcon.fas.fa-book
+            %p.gameButtonTitle Attempt Education
+
+
+<!------------------>
+<!-- Inventory UI -->
+<!------------------>
+#inventoryUI
+
+    .inventoryBlock
+        %h1.inventoryTitle Memes
+        .horizontalGroup
+
+            .inventoryIconGroup.tooltipHover
+                %i.inventoryIcon.fas.fa-clipboard-check
+                %p#memesCounter.inventoryCounter
+                .tooltipBox.inventoryTooltipPosition
+                    %span.tooltipText
+                        <b>Memes</b><br>
+                        Number of memes created.<br>
+                        Create 10 to win.
+
+            .inventoryIconGroup.tooltipHover
+                %i.inventoryIcon.fas.fa-wheelchair
+                %p#memeChanceCounter.inventoryCounter
+                .tooltipBox.inventoryTooltipPosition
+                    %span.tooltipText
+                        <b>Memery Skill</b><br>
+                        Chance to create a meme.<br>
+                        Improved by Train Memery.
+
+    .inventoryBlock
+        %h1.inventoryTitle Cash
+        .horizontalGroup
+
+            .inventoryIconGroup.tooltipHover
+                %i.inventoryIcon.fas.fa-coins
+                %p#cashCounter.inventoryCounter
+                .tooltipBox.inventoryTooltipPosition
+                    %span.tooltipText
+                        <b>Cash</b><br>
+                        Current cash.<br>
+                        Used to pay bills.
+
+            .inventoryIconGroup.tooltipHover
+                %i.inventoryIcon.fas.fa-business-time
+                %p#salaryCounter.inventoryCounter
+                .tooltipBox.inventoryTooltipPosition
+                    %span.tooltipText
+                        <b>Salary</b><br>
+                        Money earned from Working.<br>
+                        Improved by Attempt Education.
+
+    .inventoryBlock
+        %h1.inventoryTitle Stats
+        .horizontalGroup
+
+            .inventoryIconGroup.tooltipHover
+                %i.inventoryIcon.fas.fa-shopping-basket
+                %p#billsCounter.inventoryCounter
+                .tooltipBox.inventoryTooltipPosition
+                    %span.tooltipText
+                        <b>Bills</b><br>
+                        Amount due every week.<br>
+                        Failure to pay results in defeat.
+
+            .inventoryIconGroup.tooltipHover
+                %i.inventoryIcon.fas.fa-money-check
+                %p#raiseCounter.inventoryCounter
+                .tooltipBox.inventoryTooltipPosition
+                    %span.tooltipText
+                        <b>Raise Amount</b><br>
+                        Amount your salary increases<br>
+                        from Attempt Education.
+
+            .inventoryIconGroup.tooltipHover
+                %i.inventoryIcon.fas.fa-fax
+                %p#raiseChanceCounter.inventoryCounter
+                .tooltipBox.inventoryTooltipPosition
+                    %span.tooltipText
+                        <b>Raise Chance</b><br>
+                        Chance to increase salary<br>
+                        with Attempt Education.
+
+<!--------------->
+<!-- The Game! -->
+<!--------------->
+%script(type="text/javascript" src="app/app-bundle.js")

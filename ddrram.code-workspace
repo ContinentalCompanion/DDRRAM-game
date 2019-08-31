@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "src"
 		}
-	]
+	],
+	"settings": {
+		"workbench.tree.indent": 24
+	}
 }

@@ -1,0 +1,161 @@
+<!----------------------->
+<!-- Game World Screen -->
+<!----------------------->
+<div id='gameWorldScreen'>
+<div id='dialogBoxContainer'>
+<div id='dialogBox'>
+<i class='fas fa-paint-brush' id='dialogBoxIcon'></i>
+<p id='dialogBoxText'></p>
+</div>
+</div>
+<div class='gameButtonVerticalGroup'>
+<div class='gameButton tooltipHover' id='attemptMemeButton'>
+<div class='tooltipBox gameButtonTooltipPosition'>
+<span class='tooltipText'>
+Spend the day<br>
+attempting to meme.<br>
+Success chance can be<br>
+improved by Train Memery.
+</span>
+</div>
+<i class='gameButtonIcon fas fa-paint-brush'></i>
+<p class='gameButtonTitle'>Attempt Meme</p>
+</div>
+<div class='gameButton tooltipHover' id='trainMemeryButton'>
+<div class='tooltipBox gameButtonTooltipPosition'>
+<span class='tooltipText'>
+Spend the day<br>
+improving memery skills.<br>
+Increases Attempt Meme<br>
+success chance by 2%.
+</span>
+</div>
+<i class='gameButtonIcon fas fa-biking'></i>
+<p class='gameButtonTitle'>Train Memery</p>
+</div>
+<div class='gameButton tooltipHover' id='workButton'>
+<div class='tooltipBox gameButtonTooltipPosition'>
+<span class='tooltipText'>
+Go to work for the day.<br>
+Earns money equal<br>
+to your salary.
+</span>
+</div>
+<i class='gameButtonIcon fas fa-briefcase'></i>
+<p class='gameButtonTitle'>Work</p>
+</div>
+<div class='gameButton tooltipHover' id='attemptEducationButton'>
+<div class='tooltipBox gameButtonTooltipPosition'>
+<span class='tooltipText'>
+Spend the day attempting<br>
+to improve your career.<br>
+25% chance to increase<br>
+salary by $2.
+</span>
+</div>
+<i class='gameButtonIcon fas fa-book'></i>
+<p class='gameButtonTitle'>Attempt Education</p>
+</div>
+</div>
+</div>
+<!------------------>
+<!-- Inventory UI -->
+<!------------------>
+<div id='inventoryUI'>
+<div class='inventoryBlock'>
+<h1 class='inventoryTitle'>Memes</h1>
+<div class='horizontalGroup'>
+<div class='inventoryIconGroup tooltipHover'>
+<i class='inventoryIcon fas fa-clipboard-check'></i>
+<p class='inventoryCounter' id='memesCounter'></p>
+<div class='tooltipBox inventoryTooltipPosition'>
+<span class='tooltipText'>
+<b>Memes</b><br>
+Number of memes created.<br>
+Create 10 to win.
+</span>
+</div>
+</div>
+<div class='inventoryIconGroup tooltipHover'>
+<i class='inventoryIcon fas fa-wheelchair'></i>
+<p class='inventoryCounter' id='memeChanceCounter'></p>
+<div class='tooltipBox inventoryTooltipPosition'>
+<span class='tooltipText'>
+<b>Memery Skill</b><br>
+Chance to create a meme.<br>
+Improved by Train Memery.
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class='inventoryBlock'>
+<h1 class='inventoryTitle'>Cash</h1>
+<div class='horizontalGroup'>
+<div class='inventoryIconGroup tooltipHover'>
+<i class='inventoryIcon fas fa-coins'></i>
+<p class='inventoryCounter' id='cashCounter'></p>
+<div class='tooltipBox inventoryTooltipPosition'>
+<span class='tooltipText'>
+<b>Cash</b><br>
+Current cash.<br>
+Used to pay bills.
+</span>
+</div>
+</div>
+<div class='inventoryIconGroup tooltipHover'>
+<i class='inventoryIcon fas fa-business-time'></i>
+<p class='inventoryCounter' id='salaryCounter'></p>
+<div class='tooltipBox inventoryTooltipPosition'>
+<span class='tooltipText'>
+<b>Salary</b><br>
+Money earned from Working.<br>
+Improved by Attempt Education.
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class='inventoryBlock'>
+<h1 class='inventoryTitle'>Stats</h1>
+<div class='horizontalGroup'>
+<div class='inventoryIconGroup tooltipHover'>
+<i class='inventoryIcon fas fa-shopping-basket'></i>
+<p class='inventoryCounter' id='billsCounter'></p>
+<div class='tooltipBox inventoryTooltipPosition'>
+<span class='tooltipText'>
+<b>Bills</b><br>
+Amount due every week.<br>
+Failure to pay results in defeat.
+</span>
+</div>
+</div>
+<div class='inventoryIconGroup tooltipHover'>
+<i class='inventoryIcon fas fa-money-check'></i>
+<p class='inventoryCounter' id='raiseCounter'></p>
+<div class='tooltipBox inventoryTooltipPosition'>
+<span class='tooltipText'>
+<b>Raise Amount</b><br>
+Amount your salary increases<br>
+from Attempt Education.
+</span>
+</div>
+</div>
+<div class='inventoryIconGroup tooltipHover'>
+<i class='inventoryIcon fas fa-fax'></i>
+<p class='inventoryCounter' id='raiseChanceCounter'></p>
+<div class='tooltipBox inventoryTooltipPosition'>
+<span class='tooltipText'>
+<b>Raise Chance</b><br>
+Chance to increase salary<br>
+with Attempt Education.
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--------------->
+<!-- The Game! -->
+<!--------------->
+<script src='app/app-bundle.js' type='text/javascript'></script>

@@ -3,13 +3,15 @@
 echo ==========================================================================
 echo ==========================================================================
 echo Build Script for my Test HTML Game
-echo Compiles HAML then serves Angular project
+echo Compiles HAML, copies over meta files, compiles Angular project, and opens
+echo Angular project in Chrome.
 pause
 echo ==========================================================================
 echo ==========================================================================
 echo.
 
 cd ./compile
-call compile[HAML]
-call start chrome http://localhost:4200/ --auto-open-devtools-for-tabs --allow-file-access-from-files
-call ng serve
+call compile
+
+cd ./build-scripts/test
+call test[index]

@@ -11,9 +11,9 @@
 // Imports //
 /////////////
 
-import * as gameTime from "./gameTime";
-import * as game from "./game";
-import * as ui from "./ui";
+import * as gameTime from "./game/game-time";
+import * as game from "./game/game";
+import * as ui from "./game/ui";
 
 
 ////////////////////
@@ -74,7 +74,6 @@ export let uiLets = {
 // Game //
 //////////
 
-
 export function gameLoop() {
 	gameLets.cash = gameTime.progressTime();
 	ui.updateInvUI();
@@ -87,11 +86,15 @@ function defeat() {
 	console.log("Game over!");
 }
 
+function gameInit() {
+	gameTime.initDate(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
+	ui.initInvUI();
+	game.addGameButtonListeners();
+
+}
+
 
 //////////
 // Main //
 //////////
 
-gameTime.initDate(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
-ui.initInvUI();
-game.addGameButtonListeners();
