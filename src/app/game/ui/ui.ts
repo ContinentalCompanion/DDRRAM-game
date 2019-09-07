@@ -11,36 +11,9 @@
 // Imports //
 /////////////
 
-import { popUpDialogBoxAnim } from "./animation";
-
-import { gameLets } from "../app";
-import { uiLets } from "../app";
-
-
-////////////////////////////////
-// Document Element Letiables //
-////////////////////////////////
-
-export let docElems = {
-    memesCounter: document.getElementById("memesCounter"),
-    cashCounter: document.getElementById("cashCounter"),
-    
-    memeChanceCounter: document.getElementById("memeChanceCounter"),
-    salaryCounter: document.getElementById("salaryCounter"),
-    
-    billsCounter: document.getElementById("billsCounter"),
-    raiseCounter: document.getElementById("raiseCounter"),
-    raiseChanceCounter: document.getElementById("raiseChanceCounter"),
-    
-    dialogBox: document.getElementById("dialogBox"),
-    dialogBoxIcon: document.getElementById("dialogBoxIcon"),
-    dialogBoxText: document.getElementById("dialogBoxText"),
-    
-    attemptMemeButton: document.getElementById("attemptMemeButton"),
-    trainMemeryButton: document.getElementById("trainMemeryButton"),
-    workButton: document.getElementById("workButton"),
-    attemptEducationButton: document.getElementById("attemptEducationButton")
-}
+import { popUpDialogBoxAnim } from "../animation/animation";
+import { gameLets } from "../game.lets";
+import { uiLets, docElems, findDocElems } from "./ui.lets"
 
 
 //////////////////
@@ -49,10 +22,10 @@ export let docElems = {
 
 // Initialize Inventory UI to default values
 export function initInvUI() {
+    findDocElems();
 	docElems.billsCounter.innerHTML = "$" + Math.round(gameLets.bills).toString();
 	docElems.raiseCounter.innerHTML = "$" + Math.round(gameLets.raise).toString();
 	docElems.raiseChanceCounter.innerHTML = Math.round(gameLets.raiseChance * 100).toString() + "%";
-
 	updateInvUI();
 }
 
@@ -75,6 +48,5 @@ export function showDialogBox(text: string = "", color: string = uiLets.neutralC
 	docElems.dialogBoxText.innerHTML = text;
 	docElems.dialogBox.style.backgroundColor = color;
 	docElems.dialogBoxIcon.className = icon;
-
 	popUpDialogBoxAnim();
 }

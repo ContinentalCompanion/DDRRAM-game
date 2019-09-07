@@ -12,27 +12,8 @@
 // Imports //
 /////////////
 
-import { gameLets } from "../app";
-
-
-/////////////////////////
-// Game Time Letiables //
-/////////////////////////
-
-class date {
-	month: number;
-	day: number;
-	year: number;
-
-	constructor(month: number, day: number, year: number) {
-		this.month = month;
-		this.day = day;
-		this.year = year;
-	}
-}
-
-export let gameDate;
-export let daysElapsed = 0;
+import { gameTimeLets, date } from "./game-time.lets";
+import { gameLets } from "../game.lets";
 
 
 //////////
@@ -40,7 +21,7 @@ export let daysElapsed = 0;
 //////////
 
 export function initDate(month: number, day: number, year: number) {
-    gameDate = new date(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
+    gameTimeLets.gameDate = new date(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
 }
 
 
@@ -49,12 +30,12 @@ export function initDate(month: number, day: number, year: number) {
 ///////////////
 
 export function progressTime() {
-    gameDate.day++;
-    daysElapsed++;
+    gameTimeLets.gameDate.day++;
+    gameTimeLets.daysElapsed++;
     let newCash = gameLets.cash;
 
     // Pay bills every week
-    if (daysElapsed % 7 == 0)
+    if (gameTimeLets.daysElapsed % 7 == 0)
         newCash -= gameLets.bills;
 
     // Negative cash = defeat

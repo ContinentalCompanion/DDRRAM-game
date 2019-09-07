@@ -9,7 +9,7 @@ cd %src%
 set "srcPath=%CD%"
 
 echo Compiling [HAML]...
-for /f %%J in (./hamlconfig.json) do call :compileHamlFile %%J
+for /f %%J in (./hamlconfig.txto call :compileHamlFile %%J
 echo Compiling [HAML] complete.
 pause
 

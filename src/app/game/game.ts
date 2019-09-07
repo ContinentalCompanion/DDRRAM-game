@@ -11,14 +11,10 @@
 // Imports //
 /////////////
 
-import { showDialogBox } from "./ui";
-
-import { gameLets } from "../app";
-import { uiLets } from "../app";
-
-import { gameLoop } from "../app";
-
-import { docElems } from "./ui";
+import { initDate, progressTime } from "./game-time/game-time";
+import { gameLets } from "./game.lets";
+import { uiLets, docElems } from "./ui/ui.lets"
+import { initInvUI, updateInvUI, showDialogBox } from "./ui/ui";
 
 
 //////////
@@ -78,4 +74,27 @@ function attemptEducation() {
 		showDialogBox(uiLets.educationFailureText, uiLets.failColor, uiLets.educationIcon);
 		gameLoop();
 	}
+}
+
+
+//////////
+// Game //
+//////////
+
+export function gameLoop() {
+	gameLets.cash = progressTime();
+	updateInvUI();
+
+	if (gameLets.cash < 0)
+		defeat();
+}
+
+function defeat() {
+	console.log("Game over!");
+}
+
+export function gameInit() {
+	initDate(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
+	initInvUI();
+	addGameButtonListeners();
 }

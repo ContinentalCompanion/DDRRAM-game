@@ -8,42 +8,17 @@
 
 
 /////////////
-// Classes //
+// Imports //
 /////////////
 
-// Animation template
-class anim {
-	object: HTMLElement; // Object animated
-	tickDelay: number;   // ms between each anim frame
-	tickCount: number[]; // # of frames in each anim sequence
-	sequence: string[];  // list of anim sequences
-	
-	constructor(object: HTMLElement, tickDelay: number, tickCount: number[], sequence: string[]) {
-		this.object = object;
-		this.tickDelay = tickDelay;
-		this.tickCount = tickCount;
-		this.sequence = sequence;
-	}
-
-	// Loop letiables
-	loopIndex: number = 0;
-	seqIndex: number = 0;
-	id = null;
-	coroutine = null;
-}
+import * as animLets from "./animation.lets";
 
 
 ////////////////
 // Animations //
 ////////////////
 
-let popUpDialogBox = new anim(
-	document.getElementById("dialogBox"), // Object animated
-	33,                                   // ms between each anim frame
-	[8, 32, 8, null],                     // # of frames in each anim sequence
-	["fadeIn", "pause", "fadeOut", null]) // list of anim sequences
-
-export function popUpDialogBoxAnim() { beginAnim(popUpDialogBox); }
+export function popUpDialogBoxAnim() { beginAnim(animLets.popUpDialogBox()); }
 
 
 /////////////////////////
@@ -51,7 +26,7 @@ export function popUpDialogBoxAnim() { beginAnim(popUpDialogBox); }
 /////////////////////////
 
 // Coroutine wrapper
-function beginAnim(animType: anim) {
+function beginAnim(animType: animLets.anim) {
 	clearInterval(animType.id);                    // End animations already playing
 	animType.coroutine = animate(animType);        // Instantiate coroutine
 	animType.coroutine.next();                     // Execute until the first yield
@@ -59,7 +34,7 @@ function beginAnim(animType: anim) {
 }
 
 // Coroutine to chain together animation loops
-function* animate(animType: anim) {
+function* animate(animType: animLets.anim) {
 	animType.loopIndex = 0; // Reset loop index
 	animType.seqIndex = 0;  // Reset animation sequence index
 
@@ -70,7 +45,7 @@ function* animate(animType: anim) {
 }
 
 // Selects correct animation based on parameter input
-function selectAnim(animType: anim, seqType: string) {
+function selectAnim(animType: animLets.anim, seqType: string) {
 	// Increment opacity
 	if (seqType == "fadeIn") {
 		animType.object.style.opacity = (animType.loopIndex * (1 / animType.tickCount[animType.seqIndex])).toString();

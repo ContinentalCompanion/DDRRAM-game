@@ -1,0 +1,117 @@
+/*****************/
+/* CSS Variables */
+/*****************/
+
+
+
+////////////////////
+// SASS Variables //
+////////////////////
+
+// Margins 
+$marginDefault: 4px;
+$marginBig: 8px;
+$marginInlineOffset: -4px;
+
+// Paddings
+$paddingDefault: 8px;
+$paddingSmall: 2px;
+
+// Borders
+$borderDefault: 2px solid black;
+$borderSmall: 1px solid black;
+$roundedBorderDefault: 5px;
+
+// Fonts
+$fontTitleBig: small-caps 30px "Lexend Deca", sans-serif;
+$fontTitleSmall: small-caps 14px "Lexend Deca", sans-serif;
+$fontDescription: 8px "Lexend Deca", sans-serif;
+$fontCounter: small-caps 12px "Lexend Deca", sans-serif;
+
+// UI
+$heightTitleBox: 112px;
+$widthButtonBox: 30%;
+$heightButtonBox: 304px;
+$marginButtonBox: calc((var(--viewportHeight) - #{$heightTitleBox} - #{$heightButtonBox} - (var(--windowMarginHeight) * 2)) / 2);
+
+
+//////////////////
+// SASS Mix-ins //
+//////////////////
+
+
+
+/*****************/
+/* Media Queries */
+/*****************/
+
+
+
+/*************/
+/* Main Menu */
+/*************/
+
+#titleBox {
+    height: $heightTitleBox;
+    width: 100%;
+
+    margin: 0;
+
+    border: $borderDefault;
+}
+
+#title {
+    font: $fontTitleBig;
+    text-align: center;
+}
+
+#subtitle {
+    font: $fontTitleSmall;
+    text-align: center;
+}
+
+
+#background {
+
+}
+
+
+/***********/
+/* Buttons */
+/***********/
+
+#buttonBox {
+    width: $widthButtonBox;
+    height: $heightButtonBox;
+
+    position: relative;
+    left: calc(50% - #{$widthButtonBox / 2});
+
+    margin-top: $marginButtonBox;
+
+    border: $borderDefault;
+}
+
+.mainMenuButton {
+
+}
+
+#playButton {
+
+}
+
+#loadButton {
+
+}
+
+#optionsButton {
+
+}
+
+#creditsButton {
+
+}
+
+#quitButton {
+
+}
