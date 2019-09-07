@@ -1,3 +1,4 @@
 index.html.haml
 app/views/game-world/game-world.component.html.haml
 app/views/main-menu/main-menu.component.html.haml
+app/app.component.html.haml
