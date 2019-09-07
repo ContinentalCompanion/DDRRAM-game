@@ -30,9 +30,6 @@ $fontCounter: small-caps 12px "Lexend Deca", sans-serif;
 
 // UI
 $heightTitleBox: 112px;
-$widthButtonBox: 30%;
-$heightButtonBox: 304px;
-$marginButtonBox: calc((var(--viewportHeight) - #{$heightTitleBox} - #{$heightButtonBox} - (var(--windowMarginHeight) * 2)) / 2);
 
 
 //////////////////
@@ -41,19 +38,43 @@ $marginButtonBox: calc((var(--viewportHeight) - #{$heightTitleBox} - #{$heightBu
 
 
 
+/////////////
+// Imports //
+/////////////
+
+@import  '../../../global-styles/flexbox';
+
+
 /*****************/
 /* Media Queries */
 /*****************/
 
 
 
-/*************/
-/* Main Menu */
-/*************/
+/**********/
+/* Screen */
+/**********/
+
+#background {
+    width: 100%;
+    height: 100%;
+}
+
+#screenBox {
+    width: 100%;
+    height: calc(100% - #{$heightTitleBox});
+
+    @include flexbox();
+}
+
+
+/*********/
+/* Title */
+/*********/
 
 #titleBox {
-    height: $heightTitleBox;
     width: 100%;
+    height: $heightTitleBox;
 
     margin: 0;
 
@@ -71,47 +92,33 @@ $marginButtonBox: calc((var(--viewportHeight) - #{$heightTitleBox} - #{$heightBu
 }
 
 
-#background {
-
-}
-
-
 /***********/
 /* Buttons */
 /***********/
 
 #buttonBox {
-    width: $widthButtonBox;
-    height: $heightButtonBox;
+    width: 190px;
+    height: 304px;
 
-    position: relative;
-    left: calc(50% - #{$widthButtonBox / 2});
-
-    margin-top: $marginButtonBox;
+    @include flexbox();
 
     border: $borderDefault;
 }
 
-.mainMenuButton {
+.button {
+    width: 80%;
+    height: 40px;
+    box-sizing: border-box;
 
+    margin: $marginDefault;
+
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
 }
 
-#playButton {
+.buttonText {
+    width: 100%;
 
-}
-
-#loadButton {
-
-}
-
-#optionsButton {
-
-}
-
-#creditsButton {
-
-}
-
-#quitButton {
-
+    font: $fontTitleSmall;
+    text-align: center;
 }

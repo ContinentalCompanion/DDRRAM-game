@@ -43,6 +43,13 @@ $fontCounter: small-caps 12px "Lexend Deca", sans-serif;
 
 
 
+/////////////
+// Imports //
+/////////////
+
+@import  'flexbox';
+
+
 /*****************/
 /* Media Queries */
 /*****************/
@@ -107,21 +114,10 @@ div {
 /********************************/
 
 .flexBox {
-    display: flex;
+    width: 100%;
+    height: 100%;
 
-    justify-content: center;
-    -webkit-justify-content: center;
-    align-items: center;
-    -webkit-align-items: center;
-}
-
-.blockBox {
-    display: block;
-
-    justify-content: center;
-    -webkit-justify-content: center;
-    align-items: center;
-    -webkit-align-items: center;
+    @include flexbox();
 }
 
 
