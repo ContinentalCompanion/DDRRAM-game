@@ -101,6 +101,7 @@ $heightTitleBox: 112px;
     height: 304px;
 
     @include flexbox();
+    flex-direction: column;
 
     border: $borderDefault;
 }

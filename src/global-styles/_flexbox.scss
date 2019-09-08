@@ -5,7 +5,6 @@
 @mixin flexbox() {
     display: flex;
 
-    flex-direction: column;
     justify-content: center;
     -webkit-justify-content: center;
     align-items: center;

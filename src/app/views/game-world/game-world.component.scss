@@ -45,6 +45,14 @@ $dialogBoxTextHeight: 18px;
 
 
 
+
+/////////////
+// Imports //
+/////////////
+
+@import  '../../../global-styles/flexbox';
+
+
 /*****************/
 /* Media Queries */
 /*****************/
@@ -157,6 +165,16 @@ $dialogBoxTextHeight: 18px;
     -webkit-justify-content: center;
 }
 
+.inventoryBlock {
+    @include flexbox();
+    flex-direction: column;
+
+    margin-left: $marginDefault;
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+}
+
 .inventoryTitle {
     margin: 0;
     padding: 0;
@@ -166,7 +184,7 @@ $dialogBoxTextHeight: 18px;
 }
 
 .inventoryIconGroup {
-    margin: $marginDefault $marginDefault;
+    margin: 0 $marginBig;
 }
 
 .inventoryIcon {
@@ -176,20 +194,13 @@ $dialogBoxTextHeight: 18px;
 .inventoryCounter {
     display: inline-block;
 
-    margin: 0 #{$marginDefault + $marginInlineOffset};
+    margin: 0 0 0 $marginDefault;
     padding: $paddingSmall;
     
     border: $borderSmall;
     border-radius: $roundedBorderDefault;
 
     font: $fontCounter;
-}
-
-.inventoryBlock {
-    margin-left: $marginDefault;
-    padding: $paddingDefault;
-    
-    border: $borderDefault;
 }
 
 .inventoryTooltipPosition {
