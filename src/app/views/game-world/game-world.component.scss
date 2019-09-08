@@ -71,7 +71,7 @@ $dialogBoxTextHeight: 18px;
     margin-top: $marginDefault;
     margin-left: calc(50% - (#{$dialogBoxWidth} / 2));
     
-    z-index: 20;
+    z-index: 2;
 }
 
 #dialogBox {
@@ -80,9 +80,6 @@ $dialogBoxTextHeight: 18px;
     box-sizing: border-box;
 
     display: flex;
-
-    /* Used to horizontally center dialogBoxText, since justify-self is */
-    /* ignored in flexbox layouts */
     justify-content: center;
     -webkit-justify-content: center;
 
@@ -124,7 +121,7 @@ $dialogBoxTextHeight: 18px;
     position: relative;
     
     visibility: hidden;
-    z-index: 10;
+    z-index: 3;
 }
 
 .tooltipText {
@@ -207,8 +204,6 @@ $dialogBoxTextHeight: 18px;
 
 .gameButtonVerticalGroup {
     height: calc(100% - #{$marginDefault * 5}); // 5 shared margins between 4 buttons
-    
-    z-index: 0;
 }
 
 .gameButton {
@@ -225,8 +220,6 @@ $dialogBoxTextHeight: 18px;
     border-radius: $roundedBorderDefault;
 
     background-color: darkseagreen;
-    
-    z-index: 50;
 }
 
 .gameButtonTitle {
@@ -240,16 +233,12 @@ $dialogBoxTextHeight: 18px;
     font: $fontTitleSmall;
     text-align: center;
     white-space: nowrap;
-
-    z-index: 0;
 }
 
 .gameButtonIcon {
     position: absolute;
     align-self: flex-start;
     -webkit-align-self: flex-start;
-
-    z-index: 1;
 }
 
 .gameButtonTooltipPosition {
