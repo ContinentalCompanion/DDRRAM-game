@@ -11,10 +11,10 @@
 // Imports //
 /////////////
 
-import { initDate, progressTime } from "./game-time/game-time";
+import { progressTime } from "./game-time/game-time";
 import { gameLets } from "./game.lets";
-import { uiLets, docElems } from "./ui/ui.lets"
-import { initInvUI, updateInvUI, showDialogBox } from "./ui/ui";
+import { uiLets, docElems, findDocElems } from "./ui/ui.lets"
+import { initInvUI, updateInvUI, showDialogBox, updateCalUI } from "./ui/ui";
 
 
 //////////
@@ -84,6 +84,7 @@ function attemptEducation() {
 export function gameLoop() {
 	gameLets.cash = progressTime();
 	updateInvUI();
+	updateCalUI();
 
 	if (gameLets.cash < 0)
 		defeat();
@@ -94,7 +95,8 @@ function defeat() {
 }
 
 export function gameInit() {
-	initDate(gameLets.startingMonth, gameLets.startingDay, gameLets.startingYear);
+	findDocElems();
 	initInvUI();
+	updateCalUI();
 	addGameButtonListeners();
 }

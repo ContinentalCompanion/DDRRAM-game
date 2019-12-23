@@ -44,8 +44,8 @@ $gameButtonTitleHeight: 18px;
 $dialogBoxWidth: 220px;
 $dialogBoxHeight: 70px;
 $dialogBoxTextHeight: 18px;
-$calendarDisplayWidth: 70px;
-$calendarDisplayHeight: 70px;
+$calendarDisplayWidth: 180px;
+$calendarDisplayHeight: 100px;
 $gameWorldScreenWidth: var(--windowWidth);
 $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marginDefault});
 
@@ -142,6 +142,9 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
 }
 
 #calendarDisplay {
+    @include flexbox();
+    flex-direction: column;
+
     width: $calendarDisplayWidth;
     height: $calendarDisplayHeight;
     box-sizing: border-box;
@@ -157,6 +160,26 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
     border-radius: $roundedBorderDefault;
 
     background-color: lightsteelblue;
+}
+
+.calendarTitle {
+    margin: 0px;
+    padding: 0px;
+
+    font: $fontTitleBig;
+    text-align: center;
+}
+
+.calendarCounter {
+    display: inline-block;
+
+    margin: 0px $marginSmall 0px $marginSmall;
+    padding: $paddingSmall;
+    
+    border: $borderSmall;
+    border-radius: $roundedBorderDefault;
+
+    font: $fontCounter;
 }
 
 

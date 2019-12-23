@@ -21,6 +21,6 @@ export class date {
 ///////////////
 
 export let gameTimeLets = {
-    gameDate: null,
-    daysElapsed: 0
+    startDate: 718922,  // Start date of game, in days elapsed since 0 AD
+    daysElapsed: 0      // Number of days elapsed since game start
 }

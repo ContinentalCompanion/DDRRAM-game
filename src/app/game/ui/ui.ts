@@ -13,7 +13,21 @@
 
 import { popUpDialogBoxAnim } from "../animation/animation";
 import { gameLets } from "../game.lets";
-import { uiLets, docElems, findDocElems } from "./ui.lets"
+import { uiLets, docElems } from "./ui.lets";
+import { convertDaysToDate } from "../game-time/game-time";
+import { gameTimeLets } from "../game-time/game-time.lets";
+
+
+/////////////////
+// Calendar UI //
+/////////////////
+
+export function updateCalUI() {
+	let convertedDate = convertDaysToDate(gameTimeLets.startDate + gameTimeLets.daysElapsed);
+	docElems.dayCounter.innerHTML = (convertedDate.day + 1).toString();
+	docElems.monthCounter.innerHTML = (convertedDate.month + 1).toString();
+	docElems.yearCounter.innerHTML = (convertedDate.year + 1).toString();
+}
 
 
 //////////////////
@@ -22,7 +36,6 @@ import { uiLets, docElems, findDocElems } from "./ui.lets"
 
 // Initialize Inventory UI to default values
 export function initInvUI() {
-    findDocElems();
 	docElems.billsCounter.innerHTML = "$" + Math.round(gameLets.bills).toString();
 	docElems.raiseCounter.innerHTML = "$" + Math.round(gameLets.raise).toString();
 	docElems.raiseChanceCounter.innerHTML = Math.round(gameLets.raiseChance * 100).toString() + "%";

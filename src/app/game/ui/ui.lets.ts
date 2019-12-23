@@ -39,13 +39,22 @@ export const uiLets = {
 ///////////////////////
 
 export let docElems = {
+    // Inventory UI
     memesCounter:null, cashCounter:null,
     memeChanceCounter:null, salaryCounter:null,
     billsCounter:null, raiseCounter:null, raiseChanceCounter:null,
+    
+    // Dialog Box
     dialogBox:null, dialogBoxIcon:null, dialogBoxText:null,
-    attemptMemeButton:null, trainMemeryButton:null, workButton:null, attemptEducationButton:null }
+    
+    // Game Buttons
+    attemptMemeButton:null, trainMemeryButton:null, workButton:null, attemptEducationButton:null,
+
+    // Calendar Display UI
+    dayCounter:null, monthCounter:null, yearCounter:null }
 
 export function findDocElems() {
+    // Inventory UI
     docElems.memesCounter = document.getElementById("memesCounter");
     docElems.cashCounter = document.getElementById("cashCounter");
 
@@ -56,12 +65,19 @@ export function findDocElems() {
     docElems.raiseCounter = document.getElementById("raiseCounter");
     docElems.raiseChanceCounter = document.getElementById("raiseChanceCounter");
 
+    // Dialog Box
     docElems.dialogBox = document.getElementById("dialogBox");
     docElems.dialogBoxIcon = document.getElementById("dialogBoxIcon");
     docElems.dialogBoxText = document.getElementById("dialogBoxText");
 
+    // Game Buttons
     docElems.attemptMemeButton = document.getElementById("attemptMemeButton");
     docElems.trainMemeryButton = document.getElementById("trainMemeryButton");
     docElems.workButton = document.getElementById("workButton");
     docElems.attemptEducationButton = document.getElementById("attemptEducationButton");
+
+    // Calendar Display UI
+    docElems.dayCounter = document.getElementById("dayCounter");
+    docElems.monthCounter = document.getElementById("monthCounter");
+    docElems.yearCounter = document.getElementById("yearCounter");
 }
