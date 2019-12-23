@@ -16,26 +16,6 @@ $percentMarginHeight: 0.025;
 $percentWindowWidth: 1 - (2 * $percentMarginWidth);
 $percentWindowHeight: 1 - (2 * $percentMarginHeight);
 
-// Margins 
-$marginDefault: 4px;
-$marginBig: 8px;
-$marginInlineOffset: -4px;
-
-// Paddings
-$paddingDefault: 8px;
-$paddingSmall: 2px;
-
-// Borders
-$borderDefault: 2px solid black;
-$borderSmall: 1px solid black;
-$roundedBorderDefault: 5px;
-
-// Fonts
-$fontTitleBig: small-caps 30px "Lexend Deca", sans-serif;
-$fontTitleSmall: small-caps 14px "Lexend Deca", sans-serif;
-$fontDescription: 8px "Lexend Deca", sans-serif;
-$fontCounter: small-caps 12px "Lexend Deca", sans-serif;
-
 
 //////////////////
 // SASS Mix-ins //

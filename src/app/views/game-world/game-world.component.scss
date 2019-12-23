@@ -9,24 +9,31 @@
 ////////////////////
 
 // Margins 
-$marginDefault: 4px;
-$marginBig: 8px;
-$marginInlineOffset: -4px;
+$marginSmall: 4px;
+$marginDefault: 8px;
+$marginBig: 16px;
+$marginInlineOffset: -8px;
 
 // Paddings
 $paddingDefault: 8px;
 $paddingSmall: 2px;
-
-// Borders
-$borderDefault: 2px solid black;
-$borderSmall: 1px solid black;
-$roundedBorderDefault: 5px;
 
 // Fonts
 $fontTitleBig: small-caps 30px "Lexend Deca", sans-serif;
 $fontTitleSmall: small-caps 14px "Lexend Deca", sans-serif;
 $fontDescription: 8px "Lexend Deca", sans-serif;
 $fontCounter: small-caps 12px "Lexend Deca", sans-serif;
+
+// Borders
+$borderDefaultThickness: 2px;
+$borderDefaultLine: solid;
+$borderDefaultColor: black;
+$borderDefault: $borderDefaultThickness $borderDefaultLine $borderDefaultColor;
+$borderSmallThickness: 1px;
+$borderSmallLine: solid;
+$borderSmallColor: black;
+$borderSmall: $borderSmallThickness $borderSmallLine $borderSmallColor;
+$roundedBorderDefault: 5px;
 
 // UI Variables
 $inventoryHeight: 87px;
@@ -37,6 +44,10 @@ $gameButtonTitleHeight: 18px;
 $dialogBoxWidth: 220px;
 $dialogBoxHeight: 70px;
 $dialogBoxTextHeight: 18px;
+$calendarDisplayWidth: 70px;
+$calendarDisplayHeight: 70px;
+$gameWorldScreenWidth: var(--windowWidth);
+$gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marginDefault});
 
 
 //////////////////
@@ -64,8 +75,8 @@ $dialogBoxTextHeight: 18px;
 /*********************/
 
 #gameWorldScreen {
-    width: 100%;
-    height: calc(100% - #{$inventoryHeight} - #{$marginDefault});
+    width: $gameWorldScreenWidth;
+    height: $gameWorldScreenHeight;
     box-sizing: border-box;
 
     margin-bottom: $marginDefault;
@@ -76,9 +87,9 @@ $dialogBoxTextHeight: 18px;
 #dialogBoxContainer {
     position: absolute;
     
-    margin-top: $marginDefault;
-    margin-left: calc(50% - (#{$dialogBoxWidth} / 2));
-    
+    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    margin-left: calc((var(--windowWidth) / 2) - (#{$dialogBoxWidth} / 2) - #{$borderDefaultThickness});
+
     z-index: 2;
 }
 
@@ -88,6 +99,7 @@ $dialogBoxTextHeight: 18px;
     box-sizing: border-box;
 
     display: flex;
+    
     justify-content: center;
     -webkit-justify-content: center;
 
@@ -113,11 +125,38 @@ $dialogBoxTextHeight: 18px;
     align-self: flex-end;
     -webkit-align-self: flex-end;
 
-    margin: 0;
+    margin: 0px;
 
     font: $fontTitleSmall;
     text-align: center;
     white-space: nowrap;
+}
+
+#calendarDisplayContainer {
+    position: absolute;
+    
+    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    margin-left: calc(var(--windowWidth) - #{$calendarDisplayWidth} - #{$marginDefault} - #{$borderDefaultThickness});
+
+    z-index: 2;
+}
+
+#calendarDisplay {
+    width: $calendarDisplayWidth;
+    height: $calendarDisplayHeight;
+    box-sizing: border-box;
+
+    display: flex;
+    
+    justify-content: center;
+    -webkit-justify-content: center;
+
+    padding: $paddingDefault;
+
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: lightsteelblue;
 }
 
 
@@ -163,28 +202,30 @@ $dialogBoxTextHeight: 18px;
 
     justify-content: center;
     -webkit-justify-content: center;
+
+    margin-top: calc(0px - #{$borderDefaultThickness});
 }
 
 .inventoryBlock {
     @include flexbox();
     flex-direction: column;
 
-    margin-left: $marginDefault;
+    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
     padding: $paddingDefault;
     
     border: $borderDefault;
 }
 
 .inventoryTitle {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 
     font: $fontTitleBig;
     text-align: center;
 }
 
 .inventoryIconGroup {
-    margin: 0 $marginBig;
+    margin: 0px $marginDefault;
 }
 
 .inventoryIcon {
@@ -194,7 +235,7 @@ $dialogBoxTextHeight: 18px;
 .inventoryCounter {
     display: inline-block;
 
-    margin: 0 0 0 $marginDefault;
+    margin: 0px 0px 0px $marginSmall;
     padding: $paddingSmall;
     
     border: $borderSmall;
@@ -210,21 +251,22 @@ $dialogBoxTextHeight: 18px;
 
 
 /******************/
-/* Game Screen UI */
+/*  Game Buttons  */
 /******************/
 
 .gameButtonVerticalGroup {
-    height: calc(100% - #{$marginDefault * 5}); // 5 shared margins between 4 buttons
+    height: calc(#{$gameWorldScreenHeight} - #{$marginDefault});
 }
 
 .gameButton {
     width: $gameButtonWidth;
-    height: 25%;
+    height: calc((#{$gameWorldScreenHeight} - (#{$marginDefault} * 5) + (#{$borderDefaultThickness} * 3)) / 4);
     box-sizing: border-box;
-
     display: flex;
 
-    margin: $marginDefault;
+    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    
     padding: $paddingDefault;
     
     border: $borderDefault;
@@ -239,7 +281,7 @@ $dialogBoxTextHeight: 18px;
     align-self: flex-end;
     -webkit-align-self: flex-end;
 
-    margin: 0;
+    margin: 0px;
 
     font: $fontTitleSmall;
     text-align: center;

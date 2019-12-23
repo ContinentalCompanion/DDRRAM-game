@@ -20,5 +20,6 @@ export const gameLets = {
 	// Game Time
 	startingMonth: 4,
 	startingDay: 20,
-	startingYear: 1969
+	startingYear: 1969,
+	elapsedDays: 0
 }
