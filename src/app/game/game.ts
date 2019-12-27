@@ -84,7 +84,7 @@ function attemptEducation() {
 export function gameLoop() {
 	gameLets.cash = progressTime();
 	updateInvUI();
-	updateCalUI();
+	//updateCalUI();
 
 	if (gameLets.cash < 0)
 		defeat();
@@ -97,6 +97,6 @@ function defeat() {
 export function gameInit() {
 	findDocElems();
 	initInvUI();
-	updateCalUI();
+	//updateCalUI();
 	addGameButtonListeners();
 }

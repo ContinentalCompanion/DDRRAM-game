@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-how-to-play',
@@ -6,12 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./how-to-play.component.scss']
 })
 
-export class HowToPlayComponent implements OnInit {
+export class HowToPlayComponent {
 
   constructor() { }
-
-  ngOnInit() {
-
-  }
 
 }

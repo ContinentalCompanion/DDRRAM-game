@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { gameInit } from '../../game/game'
+import { gameInit } from '../../game/game';
 
 @Component({
   selector: 'app-game-world',
@@ -9,10 +9,10 @@ import { gameInit } from '../../game/game'
 
 export class GameWorldComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    gameInit();
+    //gameInit();
   }
 
 }

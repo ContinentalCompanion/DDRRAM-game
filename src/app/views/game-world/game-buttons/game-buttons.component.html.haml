@@ -1,0 +1,69 @@
+.gameButtonVerticalGroup
+
+    <div *ngFor="let gameButton of gameButtons" [attr.id]="gameButton.id" class="gameButton tooltipHover">
+    
+    <div class="tooltipBox gameButtonTooltipBox">
+    <span class="tooltipText gameButtonTooltipText">
+    {{ gameButton.description }}
+    </span>
+    </div>
+
+    <i class="gameButtonIcon" [ngClass]="gameButton.icon"></i>
+    <p class="gameButtonTitle">{{ gameButton.name }}</p>
+    
+    </div>
+
+
+-#
+    <div class="gameButton tooltipHover" *ngFor="let gameButton of gameButtons" [attr.id]="gameButton.id">
+ 
+        <div class="tooltipBox gameButtonTooltipBox">
+            <span class="tooltipText gameButtonTooltipText">
+                {{ gameButton.description }}
+            </span>
+        </div>
+
+        <img class="gameButtonIcon" [ngClass]="gameButton.icon"></img>
+        <p class="gameButtonTitle">{{ gameButton.name }}</p>
+
+    </div>
+
+-#
+        #attemptMemeButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipBox
+                %span.tooltipText.gameButtonTooltipText
+                    Spend the day<br>
+                    attempting to meme.<br>
+                    Success chance can be<br>
+                    improved by Train Memery.
+            %i.gameButtonIcon.fas.fa-paint-brush
+            %p.gameButtonTitle Attempt Meme
+
+        #trainMemeryButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipBox
+                %span.tooltipText.gameButtonTooltipText
+                    Spend the day<br>
+                    improving memery skills.<br>
+                    Increases Attempt Meme<br>
+                    success chance by 2%.
+            %i.gameButtonIcon.fas.fa-biking
+            %p.gameButtonTitle Train Memery
+
+        #workButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipBox
+                %span.tooltipText.gameButtonTooltipText
+                    Go to work for the day.<br>
+                    Earns money equal<br>
+                    to your salary.
+            %i.gameButtonIcon.fas.fa-briefcase
+            %p.gameButtonTitle Work
+
+        #attemptEducationButton.gameButton.tooltipHover
+            .tooltipBox.gameButtonTooltipBox
+                %span.tooltipText.gameButtonTooltipText
+                    Spend the day attempting<br>
+                    to improve your career.<br>
+                    25% chance to increase<br>
+                    salary by $2.
+            %i.gameButtonIcon.fas.fa-book
+            %p.gameButtonTitle Attempt Education

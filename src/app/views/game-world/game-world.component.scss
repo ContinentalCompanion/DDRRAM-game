@@ -35,7 +35,10 @@ $borderSmallColor: black;
 $borderSmall: $borderSmallThickness $borderSmallLine $borderSmallColor;
 $roundedBorderDefault: 5px;
 
-// UI Variables
+// UI Lets
+$gameButtons: 4;
+
+// UI Styles
 $inventoryHeight: 87px;
 $inventoryHorizontalGroupHeight: 29px;
 $inventoryTooltipHeight: 50px;
@@ -205,6 +208,7 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
     background-color: lightsteelblue;
 
     font: $fontDescription;
+    overflow-wrap: break-word;
     text-align: center;
     white-space: nowrap;
 }
@@ -283,7 +287,7 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
 
 .gameButton {
     width: $gameButtonWidth;
-    height: calc((#{$gameWorldScreenHeight} - (#{$marginDefault} * 5) + (#{$borderDefaultThickness} * 3)) / 4);
+    height: calc((#{$gameWorldScreenHeight} - (#{$marginDefault} * (#{$gameButtons} + 1)) + (#{$borderDefaultThickness} * (#{$gameButtons} - 1))) / #{$gameButtons});
     box-sizing: border-box;
     display: flex;
 
@@ -317,7 +321,11 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
     -webkit-align-self: flex-start;
 }
 
-.gameButtonTooltipPosition {
+.gameButtonTooltipBox {
     bottom: 10px;
     left: $gameButtonWidth;
+}
+
+.gameButtonTooltipText {
+    width: 105px;
 }
