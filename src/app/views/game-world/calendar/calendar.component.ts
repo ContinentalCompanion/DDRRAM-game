@@ -1,5 +1,7 @@
 // Core
 import { Component } from '@angular/core';
+import { GameWorldUiService } from '../game-world-ui.service';
+import { Subscription } from 'rxjs';
 
 // App
 import { date, gameTimeLets } from '../../../game/game-time/game-time.lets';
@@ -17,7 +19,15 @@ export class CalendarComponent {
   day = this.currentDate.day;
   year = this.currentDate.year;
 
-  constructor() {}
+  actionSubscription: Subscription;
+
+  // When gameplay action is taken, update calendar
+  constructor(private gameWorldUiService: GameWorldUiService) {
+    this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
+      lastGameplayAction => {
+        this.updateCalendar();
+    });
+  }
 
   updateCalendar() {
     this.currentDate = convertDaysToDate(gameTimeLets.startDate + gameTimeLets.daysElapsed);

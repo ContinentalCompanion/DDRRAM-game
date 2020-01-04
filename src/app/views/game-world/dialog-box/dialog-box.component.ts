@@ -23,6 +23,7 @@ export class DialogBoxComponent {
   dialogBoxColor: string;
   dialogBoxText: string;
   
+  // When a gameplay action is taken, update dialog box
   constructor(private gameWorldUiService: GameWorldUiService) {
     this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
       lastGameplayAction => {
