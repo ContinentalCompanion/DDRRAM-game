@@ -3,9 +3,7 @@
     <div *ngFor="let gameButton of gameButtons" [attr.id]="gameButton.id" class="gameButton tooltipHover" (click)="takeGameplayAction(gameButton.action)">
     
     <div class="tooltipBox gameButtonTooltipBox">
-    <span class="tooltipText gameButtonTooltipText">
-    {{ gameButton.description }}
-    </span>
+    <span class="tooltipText gameButtonTooltipText" [innerHTML]="gameButton.description"></span>
     </div>
 
     <i class="gameButtonIcon" [ngClass]="gameButton.icon"></i>
