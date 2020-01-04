@@ -82,8 +82,6 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
     height: $gameWorldScreenHeight;
     box-sizing: border-box;
 
-    margin-bottom: $marginDefault;
-
     border: $borderDefault;
 }
 
@@ -229,14 +227,13 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
 
     justify-content: center;
     -webkit-justify-content: center;
-
-    margin-top: calc(0px - #{$borderDefaultThickness});
 }
 
 .inventoryBlock {
     @include flexbox();
     flex-direction: column;
 
+    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
     margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
     padding: $paddingDefault;
     
