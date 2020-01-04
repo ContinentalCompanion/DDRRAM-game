@@ -1,4 +1,7 @@
 #dialogBoxContainer
-    #dialogBox
-        %i#dialogBoxIcon.fas.fa-paint-brush
-        %p#dialogBoxText
+    <div id="dialogBox" [ngStyle]="{'background-color': dialogBoxColor}">
+    
+    <i id="dialogBoxIcon" [ngClass]="dialogBoxIcon"></i>
+    <p id="dialogBoxText" [innerHTML]="dialogBoxText"></p>
+    
+    </div>

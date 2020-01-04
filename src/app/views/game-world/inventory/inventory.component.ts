@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'inventory',
@@ -6,12 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../game-world.component.scss']
 })
 
-export class InventoryComponent implements OnInit {
-
+export class InventoryComponent {
   constructor() {}
-
-  ngOnInit() {
-    
-  }
-
 }

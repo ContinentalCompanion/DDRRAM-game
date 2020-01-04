@@ -1,6 +1,6 @@
 .gameButtonVerticalGroup
 
-    <div *ngFor="let gameButton of gameButtons" [attr.id]="gameButton.id" class="gameButton tooltipHover">
+    <div *ngFor="let gameButton of gameButtons" [attr.id]="gameButton.id" class="gameButton tooltipHover" (click)="takeGameplayAction(gameButton.action)">
     
     <div class="tooltipBox gameButtonTooltipBox">
     <span class="tooltipText gameButtonTooltipText">
@@ -29,7 +29,7 @@
     </div>
 
 -#
-        #attemptMemeButton.gameButton.tooltipHover
+        #memeButton.gameButton.tooltipHover
             .tooltipBox.gameButtonTooltipBox
                 %span.tooltipText.gameButtonTooltipText
                     Spend the day<br>
@@ -58,7 +58,7 @@
             %i.gameButtonIcon.fas.fa-briefcase
             %p.gameButtonTitle Work
 
-        #attemptEducationButton.gameButton.tooltipHover
+        #educationButton.gameButton.tooltipHover
             .tooltipBox.gameButtonTooltipBox
                 %span.tooltipText.gameButtonTooltipText
                     Spend the day attempting<br>

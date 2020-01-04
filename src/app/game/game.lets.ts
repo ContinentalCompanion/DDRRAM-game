@@ -16,10 +16,4 @@ export const gameLets = {
 	raise: 2,
 	raiseChance: 0.25,
 	memeChanceIncrease: 0.02,
-
-	// Game Time
-	startingMonth: 4,
-	startingDay: 20,
-	startingYear: 1969,
-	elapsedDays: 0
 }

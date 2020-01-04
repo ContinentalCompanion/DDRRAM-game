@@ -1,5 +1,8 @@
+// Core
 import { Component, OnInit } from '@angular/core';
-import { gameInit } from '../../game/game';
+
+// App
+//import { gameInit } from '../../game/game';
 
 @Component({
   selector: 'app-game-world',
@@ -8,11 +11,11 @@ import { gameInit } from '../../game/game';
 })
 
 export class GameWorldComponent implements OnInit {
-
   constructor() {}
+  ngOnInit() {/*gameInit();*/}
 
-  ngOnInit() {
-    //gameInit();
+  // Game World Events
+  receiveGameplayActionEvent(event1: {action: string, result: number}) {
+    
   }
-
 }
