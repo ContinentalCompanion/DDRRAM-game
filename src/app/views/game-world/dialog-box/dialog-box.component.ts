@@ -1,5 +1,5 @@
 // Core
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { GameWorldUiService } from '../game-world-ui.service';
 import { Subscription } from 'rxjs';
 
@@ -12,7 +12,7 @@ import { popUpDialogBoxAnim } from '../../../game/animation/animation';
   styleUrls: ['../game-world.component.scss']
 })
 
-export class DialogBoxComponent {
+export class DialogBoxComponent implements OnDestroy {
   actionSubscription: Subscription;
   resultSubscription: Subscription;
   @Input() lastGameplayAction: {icon: string, successColor: string,
@@ -31,7 +31,8 @@ export class DialogBoxComponent {
         this.dialogBoxIcon = lastGameplayAction.icon;
         this.dialogBoxText = lastGameplayAction.successText;
         popUpDialogBoxAnim();
-      });
+      }
+    );
 
     this.resultSubscription = gameWorldUiService.lastGameplayActionResult$.subscribe(
       lastGameplayActionResult => {
@@ -46,6 +47,12 @@ export class DialogBoxComponent {
           this.dialogBoxColor = this.lastGameplayAction.failColor;
           this.dialogBoxText = this.lastGameplayAction.failText;
         }
-      });
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.actionSubscription.unsubscribe();
+    this.resultSubscription.unsubscribe();
   }
 }

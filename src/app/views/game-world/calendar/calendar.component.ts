@@ -1,5 +1,5 @@
 // Core
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { GameWorldUiService } from '../game-world-ui.service';
 import { Subscription } from 'rxjs';
 
@@ -13,7 +13,7 @@ import { convertDaysToDate } from '../../../game/game-time/game-time';
   styleUrls: ['../game-world.component.scss']
 })
 
-export class CalendarComponent {
+export class CalendarComponent implements OnDestroy {
   currentDate: date = convertDaysToDate(gameTimeLets.startDate);
   month = this.currentDate.month;
   day = this.currentDate.day;
@@ -34,5 +34,9 @@ export class CalendarComponent {
     this.month = this.currentDate.month;
     this.day = this.currentDate.day;
     this.year = this.currentDate.year;
+  }
+
+  ngOnDestroy() {
+    this.actionSubscription.unsubscribe();
   }
 }
