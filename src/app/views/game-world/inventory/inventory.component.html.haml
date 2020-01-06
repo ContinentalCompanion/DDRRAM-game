@@ -1,5 +1,25 @@
 #inventoryUI
 
+    <div *ngFor="let inventoryBlock of inventoryBlocks" class="inventoryBlock">
+    <h1 class="inventoryTitle">{{ inventoryBlock.title }}</h1>
+    <div class="flexBoxH">
+
+    <div *ngFor="let item of inventoryBlock.items; index as i" class="inventoryIconGroup tooltipHover">
+    
+    <i class="inventoryIcon" [ngClass]="item.icon"></i>
+    <p [attr.id]="item.counterId" class="inventoryCounter">{{item.text}}</p>
+
+    <div class="tooltipBox inventoryTooltipPosition">
+    <span class="tooltipText" [innerHTML]="'<b>' + item.tooltipTitle + '</b><br>' + item.tooltipDesc"></span>
+    </div>
+
+    </div>
+    
+    </div>
+    </div>
+
+
+-#
     .inventoryBlock
         %h1.inventoryTitle Memes
         .flexBoxH

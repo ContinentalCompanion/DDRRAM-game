@@ -11,9 +11,12 @@
 // Imports //
 /////////////
 
-// App
-import { progressTime } from "./game-time/game-time";
+// App Lets
 import { gameLets } from "./game.lets";
+
+// App Functions
+import { progressTime } from "./game-time/game-time";
+
 // *DEPRECATED* UI now handled through Angular modules and components
 //import { uiLets, docElems, findDocElems } from "./ui/ui.lets"
 //import { initInvUI, updateInvUI, showDialogBox, } from "./ui/ui";
@@ -60,7 +63,8 @@ export function meme() {
 
 export function trainMemery() {
 	if (gameLets.memeChance < 1.0) {
-        gameLets.memeChance += gameLets.memeChanceIncrease;
+        //gameLets.memeChance = floatRound(gameLets.memeChance + gameLets.memeChanceIncrease);
+		gameLets.memeChance += gameLets.memeChanceIncrease;
 		appGameLoop();
 		return 1;
 		
