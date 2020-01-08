@@ -1,0 +1,60 @@
+/*****************/
+/* CSS Variables */
+/*****************/
+
+
+
+////////////////////
+// SASS Variables //
+////////////////////
+
+// Margins 
+$marginSmall: 4px;
+$marginDefault: 8px;
+$marginBig: 16px;
+$marginInlineOffset: -8px;
+
+// Paddings
+$paddingDefault: 8px;
+$paddingSmall: 2px;
+
+// Fonts
+$fontTitleBig: small-caps 30px "Lexend Deca", sans-serif;
+$fontTitleSmall: small-caps 14px "Lexend Deca", sans-serif;
+$fontDescription: 8px "Lexend Deca", sans-serif;
+$fontCounter: small-caps 12px "Lexend Deca", sans-serif;
+
+// Borders
+$borderDefaultThickness: 2px;
+$borderDefaultLine: solid;
+$borderDefaultColor: black;
+$borderDefault: $borderDefaultThickness $borderDefaultLine $borderDefaultColor;
+$borderSmallThickness: 1px;
+$borderSmallLine: solid;
+$borderSmallColor: black;
+$borderSmall: $borderSmallThickness $borderSmallLine $borderSmallColor;
+$roundedBorderDefault: 5px;
+
+
+//////////////////
+// SASS Mix-ins //
+//////////////////
+
+
+
+/////////////
+// Imports //
+/////////////
+
+
+
+/*****************/
+/* Media Queries */
+/*****************/
+
+
+
+/************/
+/*          */
+/************/
+

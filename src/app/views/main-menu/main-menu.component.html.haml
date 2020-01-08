@@ -4,23 +4,23 @@
         %h2#subtitle Drummer Dreamer Reamer Reader and Memer
     #screenBox
         #buttonBox
-            <div id="playButton" class="button" [routerLink]="['/game']">
+            <div id="playButton" class="button firstButton" [routerLink]="['/game']">
             <div class="flexBoxV">
             <div class="buttonText"> Play </div></div></div>
             
-            <div id="howToPlayButton" class="button" [routerLink]="['/howToPlay']">
+            <div id="howToPlayButton" class="button notFirstButton" [routerLink]="['/howToPlay']">
             <div class="flexBoxV">
             <div class="buttonText"> How to Play </div></div></div>
 
-            #loadButton.button
+            #loadButton.button.notFirstButton
                 .flexBoxV
                     .buttonText Load
-            #optionsButton.button
+            #optionsButton.button.notFirstButton
                 .flexBoxV
                     .buttonText Options
-            #creditsButton.button
+            #creditsButton.button.notFirstButton
                 .flexBoxV
                     .buttonText Credits
-            #quitButton.button
+            #quitButton.button.notFirstButton
                 .flexBoxV
                     .buttonText Quit

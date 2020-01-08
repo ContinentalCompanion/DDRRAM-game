@@ -10,7 +10,7 @@ import { convertDaysToDate } from '../../../game/game-time/game-time';
 @Component({
   selector: 'calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['../game-world.component.scss']
+  styleUrls: ['./calendar.component.scss']
 })
 
 export class CalendarComponent implements OnDestroy {

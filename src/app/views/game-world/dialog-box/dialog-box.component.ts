@@ -9,7 +9,7 @@ import { popUpDialogBoxAnim } from '../../../game/animation/animation';
 @Component({
   selector: 'dialog-box',
   templateUrl: './dialog-box.component.html',
-  styleUrls: ['../game-world.component.scss']
+  styleUrls: ['./dialog-box.component.scss']
 })
 
 export class DialogBoxComponent implements OnDestroy {

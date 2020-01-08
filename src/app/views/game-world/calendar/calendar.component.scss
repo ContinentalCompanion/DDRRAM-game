@@ -1,0 +1,62 @@
+/////////////
+// Imports //
+/////////////
+
+@import  '../game-world.component.scss';
+
+
+/**************/
+/* Game World */
+/**************/
+
+#calendarDisplayContainer {
+    position: absolute;
+    
+    // Subtract line thickness from margin calculations
+    // Helps game world screen size calculations
+    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    margin-left: calc(var(--windowWidth) - #{$calendarDisplayWidth} - #{$marginDefault} - #{$borderDefaultThickness});
+
+    z-index: 2;
+}
+
+#calendarDisplay {
+    @include flexbox();
+    flex-direction: column;
+
+    width: $calendarDisplayWidth;
+    height: $calendarDisplayHeight;
+    box-sizing: border-box;
+
+    display: flex;
+    
+    justify-content: center;
+    -webkit-justify-content: center;
+
+    padding: $paddingDefault;
+
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: lightsteelblue;
+}
+
+.calendarTitle {
+    margin: 0px;
+    padding: 0px;
+
+    font: $fontTitleBig;
+    text-align: center;
+}
+
+.calendarCounter {
+    display: inline-block;
+
+    margin: 0px $marginSmall 0px $marginSmall;
+    padding: $paddingSmall;
+    
+    border: $borderSmall;
+    border-radius: $roundedBorderDefault;
+
+    font: $fontCounter;
+}

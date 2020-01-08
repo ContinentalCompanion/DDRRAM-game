@@ -27,7 +27,8 @@ $percentWindowHeight: 1 - (2 * $percentMarginHeight);
 // Imports //
 /////////////
 
-@import  'flexbox';
+@import 'flexbox';
+@import 'ui-styles';
 
 
 /*****************/
@@ -35,7 +36,7 @@ $percentWindowHeight: 1 - (2 * $percentMarginHeight);
 /*****************/
 
 /* Scale window size to viewport size if at least 640x480 */
-/* Otherwise, lock window size to 640 x 480 (including margins) */
+/* Otherwise, lock window size to 640x480 (including margins) */
 @media (min-width: #{$breakpointStaticWidth}) {
     :root {
         --viewportWidth: 100vw;
@@ -52,7 +53,7 @@ $percentWindowHeight: 1 - (2 * $percentMarginHeight);
     }
 }
 
-@media (max-width: #{($breakpointStaticWidth) - 1}) {
+@media (max-width: #{($breakpointStaticWidth) - 1px}) {
     :root {
         --viewportWidth: #{$breakpointStaticWidth};
         --windowWidth: #{$percentWindowWidth * $breakpointStaticWidth};
@@ -60,7 +61,7 @@ $percentWindowHeight: 1 - (2 * $percentMarginHeight);
     }
 }
 
-@media (max-height: #{($breakpointStaticHeight) - 1}) {
+@media (max-height: #{($breakpointStaticHeight) - 1px}) {
     :root {
         --viewportHeight: #{$breakpointStaticHeight};
         --windowHeight: #{$percentWindowHeight * $breakpointStaticHeight};

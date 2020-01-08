@@ -1,0 +1,65 @@
+/////////////
+// Imports //
+/////////////
+
+@import  '../game-world.component.scss';
+
+
+/**************/
+/* Game World */
+/**************/
+
+#inventoryUI {
+    height: $inventoryHeight;
+    
+    display: flex;
+
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+.inventoryBlock {
+    @include flexbox();
+    flex-direction: column;
+
+    // Subtract line thickness from margin calculations
+    // Helps game world screen size calculations
+    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+}
+
+.inventoryTitle {
+    margin: 0px;
+    padding: 0px;
+
+    font: $fontTitleBig;
+    text-align: center;
+}
+
+.inventoryIconGroup {
+    margin: 0px $marginDefault;
+}
+
+.inventoryIcon {
+    display: inline-block;
+}
+
+.inventoryCounter {
+    display: inline-block;
+
+    margin: 0px 0px 0px $marginSmall;
+    padding: $paddingSmall;
+    
+    border: $borderSmall;
+    border-radius: $roundedBorderDefault;
+
+    font: $fontCounter;
+}
+
+.inventoryTooltipPosition {
+    right: 60%;
+    bottom: $inventoryTooltipHeight + $inventoryHorizontalGroupHeight;
+}

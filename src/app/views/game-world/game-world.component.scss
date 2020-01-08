@@ -8,47 +8,31 @@
 // SASS Variables //
 ////////////////////
 
-// Margins 
-$marginSmall: 4px;
-$marginDefault: 8px;
-$marginBig: 16px;
-$marginInlineOffset: -8px;
-
-// Paddings
-$paddingDefault: 8px;
-$paddingSmall: 2px;
-
-// Fonts
-$fontTitleBig: small-caps 30px "Lexend Deca", sans-serif;
-$fontTitleSmall: small-caps 14px "Lexend Deca", sans-serif;
-$fontDescription: 8px "Lexend Deca", sans-serif;
-$fontCounter: small-caps 12px "Lexend Deca", sans-serif;
-
-// Borders
-$borderDefaultThickness: 2px;
-$borderDefaultLine: solid;
-$borderDefaultColor: black;
-$borderDefault: $borderDefaultThickness $borderDefaultLine $borderDefaultColor;
-$borderSmallThickness: 1px;
-$borderSmallLine: solid;
-$borderSmallColor: black;
-$borderSmall: $borderSmallThickness $borderSmallLine $borderSmallColor;
-$roundedBorderDefault: 5px;
+// Style
+@import '../../../global-styles/ui-styles.scss';
 
 // UI Lets
 $gameButtons: 4;
 
-// UI Styles
+// Inventory Lets
 $inventoryHeight: 87px;
 $inventoryHorizontalGroupHeight: 29px;
 $inventoryTooltipHeight: 50px;
+
+// Game Button Lets
 $gameButtonWidth: 140px;
 $gameButtonTitleHeight: 18px;
+
+// Dialog Box Lets
 $dialogBoxWidth: 220px;
 $dialogBoxHeight: 70px;
 $dialogBoxTextHeight: 18px;
+
+// Calendar Lets
 $calendarDisplayWidth: 180px;
 $calendarDisplayHeight: 100px;
+
+// Game World Lets
 $gameWorldScreenWidth: var(--windowWidth);
 $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marginDefault});
 
@@ -85,108 +69,10 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
     border: $borderDefault;
 }
 
-#dialogBoxContainer {
-    position: absolute;
-    
-    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
-    margin-left: calc((var(--windowWidth) / 2) - (#{$dialogBoxWidth} / 2) - #{$borderDefaultThickness});
 
-    z-index: 2;
-}
-
-#dialogBox {
-    width: $dialogBoxWidth;
-    height: $dialogBoxHeight;
-    box-sizing: border-box;
-
-    display: flex;
-    
-    justify-content: center;
-    -webkit-justify-content: center;
-
-    padding: $paddingDefault;
-    
-    border: $borderDefault;
-    border-radius: $roundedBorderDefault;
-
-    background-color: lightsteelblue;
-
-    opacity: 0;
-}
-
-#dialogBoxIcon {
-    position: absolute;
-    align-self: flex-start;
-    -webkit-align-self: flex-start;
-    left: $paddingDefault;
-}
-
-#dialogBoxText {
-    position: absolute;
-    align-self: flex-end;
-    -webkit-align-self: flex-end;
-
-    margin: 0px;
-
-    font: $fontTitleSmall;
-    text-align: center;
-    white-space: nowrap;
-}
-
-#calendarDisplayContainer {
-    position: absolute;
-    
-    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
-    margin-left: calc(var(--windowWidth) - #{$calendarDisplayWidth} - #{$marginDefault} - #{$borderDefaultThickness});
-
-    z-index: 2;
-}
-
-#calendarDisplay {
-    @include flexbox();
-    flex-direction: column;
-
-    width: $calendarDisplayWidth;
-    height: $calendarDisplayHeight;
-    box-sizing: border-box;
-
-    display: flex;
-    
-    justify-content: center;
-    -webkit-justify-content: center;
-
-    padding: $paddingDefault;
-
-    border: $borderDefault;
-    border-radius: $roundedBorderDefault;
-
-    background-color: lightsteelblue;
-}
-
-.calendarTitle {
-    margin: 0px;
-    padding: 0px;
-
-    font: $fontTitleBig;
-    text-align: center;
-}
-
-.calendarCounter {
-    display: inline-block;
-
-    margin: 0px $marginSmall 0px $marginSmall;
-    padding: $paddingSmall;
-    
-    border: $borderSmall;
-    border-radius: $roundedBorderDefault;
-
-    font: $fontCounter;
-}
-
-
-/**************/
-/* General UI */
-/**************/
+/************/
+/* Tooltips */
+/************/
 
 .tooltipBox {
     position: relative;
@@ -213,116 +99,4 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
 
 .tooltipHover:hover .tooltipBox {
     visibility: visible;
-}
-
-
-/****************/
-/* Inventory UI */
-/****************/
-
-#inventoryUI {
-    height: $inventoryHeight;
-    
-    display: flex;
-
-    justify-content: center;
-    -webkit-justify-content: center;
-}
-
-.inventoryBlock {
-    @include flexbox();
-    flex-direction: column;
-
-    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
-    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
-    padding: $paddingDefault;
-    
-    border: $borderDefault;
-}
-
-.inventoryTitle {
-    margin: 0px;
-    padding: 0px;
-
-    font: $fontTitleBig;
-    text-align: center;
-}
-
-.inventoryIconGroup {
-    margin: 0px $marginDefault;
-}
-
-.inventoryIcon {
-    display: inline-block;
-}
-
-.inventoryCounter {
-    display: inline-block;
-
-    margin: 0px 0px 0px $marginSmall;
-    padding: $paddingSmall;
-    
-    border: $borderSmall;
-    border-radius: $roundedBorderDefault;
-
-    font: $fontCounter;
-}
-
-.inventoryTooltipPosition {
-    right: 60%;
-    bottom: $inventoryTooltipHeight + $inventoryHorizontalGroupHeight;
-}
-
-
-/******************/
-/*  Game Buttons  */
-/******************/
-
-.gameButtonVerticalGroup {
-    height: calc(#{$gameWorldScreenHeight} - #{$marginDefault});
-}
-
-.gameButton {
-    width: $gameButtonWidth;
-    height: calc((#{$gameWorldScreenHeight} - (#{$marginDefault} * (#{$gameButtons} + 1)) + (#{$borderDefaultThickness} * (#{$gameButtons} - 1))) / #{$gameButtons});
-    box-sizing: border-box;
-    display: flex;
-
-    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
-    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
-    
-    padding: $paddingDefault;
-    
-    border: $borderDefault;
-    border-radius: $roundedBorderDefault;
-
-    background-color: darkseagreen;
-}
-
-.gameButtonTitle {
-    height: $gameButtonTitleHeight;
-    
-    align-self: flex-end;
-    -webkit-align-self: flex-end;
-
-    margin: 0px;
-
-    font: $fontTitleSmall;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.gameButtonIcon {
-    position: absolute;
-    align-self: flex-start;
-    -webkit-align-self: flex-start;
-}
-
-.gameButtonTooltipBox {
-    bottom: 10px;
-    left: $gameButtonWidth;
-}
-
-.gameButtonTooltipText {
-    width: 105px;
 }

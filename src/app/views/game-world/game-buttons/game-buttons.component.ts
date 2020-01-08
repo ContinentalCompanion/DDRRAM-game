@@ -16,7 +16,7 @@ import { meme, trainMemery, work, education } from '../../../game/game';
 @Component({
   selector: 'game-buttons',
   templateUrl: './game-buttons.component.html',
-  styleUrls: ['../game-world.component.scss']
+  styleUrls: ['./game-buttons.component.scss']
 })
 
 export class GameButtonsComponent {

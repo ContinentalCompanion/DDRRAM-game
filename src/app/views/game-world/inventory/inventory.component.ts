@@ -13,7 +13,7 @@ import { updateInventoryValues, updateInventoryText } from './inventory.lets';
 @Component({
   selector: 'inventory',
   templateUrl: './inventory.component.html',
-  styleUrls: ['../game-world.component.scss']
+  styleUrls: ['./inventory.component.scss']
 })
 
 export class InventoryComponent implements OnInit, OnDestroy {

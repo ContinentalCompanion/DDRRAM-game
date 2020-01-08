@@ -1,0 +1,61 @@
+/////////////
+// Imports //
+/////////////
+
+@import  '../game-world.component.scss';
+
+
+/**************/
+/* Game World */
+/**************/
+
+.gameButtonVerticalGroup {
+    height: calc(#{$gameWorldScreenHeight} - #{$marginDefault});
+}
+
+.gameButton {
+    width: $gameButtonWidth;
+    height: calc((#{$gameWorldScreenHeight} - (#{$marginDefault} * (#{$gameButtons} + 1)) + (#{$borderDefaultThickness} * (#{$gameButtons} - 1))) / #{$gameButtons});
+    box-sizing: border-box;
+    display: flex;
+
+    // Subtract line thickness from margin calculations
+    // Helps game world screen size calculations
+    margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
+    
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: darkseagreen;
+}
+
+.gameButtonTitle {
+    height: $gameButtonTitleHeight;
+    
+    align-self: flex-end;
+    -webkit-align-self: flex-end;
+
+    margin: 0px;
+
+    font: $fontTitleSmall;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.gameButtonIcon {
+    position: absolute;
+    align-self: flex-start;
+    -webkit-align-self: flex-start;
+}
+
+.gameButtonTooltipBox {
+    bottom: 10px;
+    left: $gameButtonWidth;
+}
+
+.gameButtonTooltipText {
+    width: 105px;
+}
