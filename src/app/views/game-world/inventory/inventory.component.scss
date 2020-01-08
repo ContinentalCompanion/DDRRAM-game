@@ -25,11 +25,19 @@
     // Subtract line thickness from margin calculations
     // Helps game world screen size calculations
     margin-top: calc(#{$marginDefault} - #{$borderDefaultThickness});
-    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
     padding: $paddingDefault;
     
     border: $borderDefault;
 }
+
+.firstIB {
+    margin-left: 0;
+}
+
+.notFirstIB {
+    margin-left: calc(#{$marginDefault} - #{$borderDefaultThickness});
+}
+
 
 .inventoryTitle {
     margin: 0px;

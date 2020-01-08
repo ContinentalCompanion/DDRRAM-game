@@ -1,6 +1,6 @@
 #inventoryUI
 
-    <div *ngFor="let inventoryBlock of inventoryBlocks" class="inventoryBlock">
+    <div *ngFor="let inventoryBlock of inventoryBlocks; index as blockNum" class="inventoryBlock" [ngClass]="(blockNum=='0')?'firstIB':'notFirstIB'">
     <h1 class="inventoryTitle">{{ inventoryBlock.title }}</h1>
     <div class="flexBoxH">
 
