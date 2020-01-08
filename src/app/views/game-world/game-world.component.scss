@@ -39,7 +39,7 @@ $calendarDisplayHeight: 100px;
 
 // Game World Lets
 $gameWorldScreenWidth: var(--windowWidth);
-$gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marginDefault});
+$gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight});
 
 
 //////////////////
