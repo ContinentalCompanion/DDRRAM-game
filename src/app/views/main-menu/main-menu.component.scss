@@ -42,15 +42,17 @@ $mainMenuButtonHeight: 40px;
 /**********/
 
 #background {
-    width: 100%;
-    height: 100%;
+    // Fix bottom and right margins being smaller
+    width: calc(100% - #{$borderDefaultThickness * 2});
+    height: calc(100% - #{$borderDefaultThickness * 2});
+
+    margin: 0;
+    padding: 0;
 }
 
 #screenBox {
     width: 100%;
-    height: calc(100% - #{$titleBoxHeight} - var(--windowMarginHeight));
-
-    border: $borderDefault;
+    height: calc(100% - #{$titleBoxHeight} - var(--windowMarginHeight) - #{$borderDefaultThickness * 2});
 
     @include flexbox();
 }
