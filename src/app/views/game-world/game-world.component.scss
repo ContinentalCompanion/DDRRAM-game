@@ -1,3 +1,11 @@
+/////////////
+// Imports //
+/////////////
+
+@import '../../../global-styles/ui-styles.scss';
+@import  '../../../global-styles/flexbox';
+
+
 /*****************/
 /* CSS Variables */
 /*****************/
@@ -7,9 +15,6 @@
 ////////////////////
 // SASS Variables //
 ////////////////////
-
-// Style
-@import '../../../global-styles/ui-styles.scss';
 
 // UI Lets
 $gameButtons: 4;
@@ -41,14 +46,6 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight} - #{$marg
 // SASS Mix-ins //
 //////////////////
 
-
-
-
-/////////////
-// Imports //
-/////////////
-
-@import  '../../../global-styles/flexbox';
 
 
 /*****************/

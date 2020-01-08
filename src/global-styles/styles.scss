@@ -1,3 +1,11 @@
+/////////////
+// Imports //
+/////////////
+
+@import 'flexbox';
+@import 'ui-styles';
+
+
 /*****************/
 /* CSS Variables */
 /*****************/
@@ -21,14 +29,6 @@ $percentWindowHeight: 1 - (2 * $percentMarginHeight);
 // SASS Mix-ins //
 //////////////////
 
-
-
-/////////////
-// Imports //
-/////////////
-
-@import 'flexbox';
-@import 'ui-styles';
 
 
 /*****************/

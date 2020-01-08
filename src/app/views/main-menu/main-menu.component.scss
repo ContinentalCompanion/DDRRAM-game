@@ -1,3 +1,11 @@
+/////////////
+// Imports //
+/////////////
+
+@import  '../../../global-styles/flexbox';
+@import '../../../global-styles/ui-styles.scss';
+
+
 /*****************/
 /* CSS Variables */
 /*****************/
@@ -7,9 +15,6 @@
 ////////////////////
 // SASS Variables //
 ////////////////////
-
-// Style
-@import '../../../global-styles/ui-styles.scss';
 
 // Title Box Lets
 $titleBoxHeight: 112px;
@@ -24,13 +29,6 @@ $mainMenuButtonHeight: 40px;
 // SASS Mix-ins //
 //////////////////
 
-
-
-/////////////
-// Imports //
-/////////////
-
-@import  '../../../global-styles/flexbox';
 
 
 /*****************/
@@ -51,7 +49,8 @@ $mainMenuButtonHeight: 40px;
 #screenBox {
     width: 100%;
     height: calc(100% - #{$titleBoxHeight} - var(--windowMarginHeight));
-    box-sizing: border-box;
+
+    border: $borderDefault;
 
     @include flexbox();
 }
