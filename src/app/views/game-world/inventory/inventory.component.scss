@@ -2,7 +2,18 @@
 // Imports //
 /////////////
 
-@import  '../game-world.component.scss';
+@import '../../../../global-styles/_flexbox.scss';
+@import '../../../../global-styles/ui-styles.scss';
+@import '../../../../global-styles/tooltip.scss';
+
+
+////////////////////
+// SASS Letiables //
+////////////////////
+
+$inventoryHeight: 87px;
+$inventoryHorizontalGroupHeight: 29px;
+$inventoryTooltipHeight: 50px;
 
 
 /**************/

@@ -2,7 +2,18 @@
 // Imports //
 /////////////
 
-@import  '../game-world.component.scss';
+@import '../../../../global-styles/ui-styles.scss';
+@import '../../../../global-styles/tooltip.scss';
+@import '../game-world.component.scss';
+
+
+////////////////////
+// SASS Letiables //
+////////////////////
+
+$gameButtons: 4;
+$gameButtonWidth: 140px;
+$gameButtonTitleHeight: 18px;
 
 
 /**************/

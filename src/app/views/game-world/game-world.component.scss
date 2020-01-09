@@ -3,41 +3,19 @@
 /////////////
 
 @import '../../../global-styles/ui-styles.scss';
-@import  '../../../global-styles/flexbox';
+@import './inventory/inventory.component.scss';
 
 
 /*****************/
-/* CSS Variables */
+/* CSS Letiables */
 /*****************/
 
 
 
 ////////////////////
-// SASS Variables //
+// SASS Letiables //
 ////////////////////
 
-// UI Lets
-$gameButtons: 4;
-
-// Inventory Lets
-$inventoryHeight: 87px;
-$inventoryHorizontalGroupHeight: 29px;
-$inventoryTooltipHeight: 50px;
-
-// Game Button Lets
-$gameButtonWidth: 140px;
-$gameButtonTitleHeight: 18px;
-
-// Dialog Box Lets
-$dialogBoxWidth: 220px;
-$dialogBoxHeight: 70px;
-$dialogBoxTextHeight: 18px;
-
-// Calendar Lets
-$calendarDisplayWidth: 180px;
-$calendarDisplayHeight: 100px;
-
-// Game World Lets
 $gameWorldScreenWidth: var(--windowWidth);
 $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight});
 
@@ -64,36 +42,4 @@ $gameWorldScreenHeight: calc(var(--windowHeight) - #{$inventoryHeight});
     box-sizing: border-box;
 
     border: $borderDefault;
-}
-
-
-/************/
-/* Tooltips */
-/************/
-
-.tooltipBox {
-    position: relative;
-    
-    visibility: hidden;
-    z-index: 3;
-}
-
-.tooltipText {
-    position: absolute;
-
-    padding: $paddingDefault;
-    
-    border: $borderDefault;
-    border-radius: $roundedBorderDefault;
-
-    background-color: lightsteelblue;
-
-    font: $fontDescription;
-    overflow-wrap: break-word;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.tooltipHover:hover .tooltipBox {
-    visibility: visible;
 }

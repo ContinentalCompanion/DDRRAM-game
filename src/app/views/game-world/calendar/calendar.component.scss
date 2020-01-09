@@ -2,7 +2,16 @@
 // Imports //
 /////////////
 
-@import  '../game-world.component.scss';
+@import '../../../../global-styles/ui-styles.scss';
+@import '../../../../global-styles/_flexbox.scss';
+
+
+////////////////////
+// Sass Letiables //
+////////////////////
+
+$calendarDisplayWidth: 180px;
+$calendarDisplayHeight: 100px;
 
 
 /**************/
