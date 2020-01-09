@@ -20,7 +20,7 @@ export class date {
 // Game Time //
 ///////////////
 
-export let gameTimeLets = {
+export const gameTimeLets = {
     startDate: 719318,  // Start date of game, in days elapsed since 0 AD
     daysElapsed: 0      // Number of days elapsed since game start
 }

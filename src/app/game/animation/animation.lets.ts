@@ -29,7 +29,7 @@ export class anim {
 // Animations //
 ////////////////
 
-let animPopUpDialogBox = new anim(
+const animPopUpDialogBox = new anim(
     document.getElementById("dialogBox"), // Object animated
     33,                                   // ms between each anim frame
     [8, 32, 8, null],                     // # of frames in each anim sequence
