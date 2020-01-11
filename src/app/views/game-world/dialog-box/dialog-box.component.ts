@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 
 // App Functions
 import { popUpDialogBoxAnim } from '../../../game/animation/animation';
+import { updateGameActionDialogBoxes } from './dialog-box.lets';
+
 
 @Component({
   selector: 'dialog-box',
@@ -27,6 +29,7 @@ export class DialogBoxComponent implements OnDestroy {
   constructor(private gameWorldUiService: GameWorldUiService) {
     this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
       lastGameplayAction => {
+        updateGameActionDialogBoxes();
         this.lastGameplayAction = lastGameplayAction;
         this.dialogBoxIcon = lastGameplayAction.icon;
         this.dialogBoxText = lastGameplayAction.successText;

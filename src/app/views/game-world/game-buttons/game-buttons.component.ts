@@ -20,8 +20,15 @@ import { meme, trainMemery, work, education } from '../../../game/game';
 })
 
 export class GameButtonsComponent {
-  gameButtons = gameButtons;  // List of game buttons, defined in game-buttons.lets.ts
+  gameButtons = gameButtons;  // Defined in game-buttons.lets.ts, used in Angular html
   constructor(private gameWorldUiService: GameWorldUiService) {}
+
+  actions = {
+    meme: gameActionDialogBoxes[0],
+    trainMemery: gameActionDialogBoxes[1],
+    work: gameActionDialogBoxes[2],
+    education: gameActionDialogBoxes[3]
+  };
 
   takeGameplayAction(action1: string) {
     // Update Game World UI
@@ -29,23 +36,24 @@ export class GameButtonsComponent {
     switch (action1) {
       case "meme":
         result1 = meme();
-        this.gameWorldUiService.updateLastGameplayAction(gameActionDialogBoxes.meme);
+        this.gameWorldUiService.updateLastGameplayAction(this.actions.meme);
         break;
       case "trainMemery":
         result1 = trainMemery();
-        this.gameWorldUiService.updateLastGameplayAction(gameActionDialogBoxes.trainMemery);
+        this.gameWorldUiService.updateLastGameplayAction(this.actions.trainMemery);
         break;
       case "work":
         result1 = work();
-        this.gameWorldUiService.updateLastGameplayAction(gameActionDialogBoxes.work);
+        this.gameWorldUiService.updateLastGameplayAction(this.actions.work);
         break;
       case "education":
         result1 = education();
-        this.gameWorldUiService.updateLastGameplayAction(gameActionDialogBoxes.education);
+        this.gameWorldUiService.updateLastGameplayAction(this.actions.education);
         break;
       default:
         break;
       }
+      
     this.gameWorldUiService.updateLastGameplayActionResult(result1);
   }
 }

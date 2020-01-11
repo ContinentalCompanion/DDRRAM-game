@@ -1,5 +1,5 @@
 // Core
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { GameWorldUiService } from '../game-world-ui.service';
 import { Subscription } from 'rxjs';
 
@@ -7,7 +7,8 @@ import { Subscription } from 'rxjs';
 import { inventoryBlocks } from './inventory.lets';
 
 // App Functions
-import { updateInventoryValues, updateInventoryText } from './inventory.lets';
+import { updateInventory } from './inventory.lets';
+// import { updateInventoryValues, updateInventoryText } from './inventory.lets';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { updateInventoryValues, updateInventoryText } from './inventory.lets';
   styleUrls: ['./inventory.component.scss']
 })
 
-export class InventoryComponent implements OnInit, OnDestroy {
+export class InventoryComponent implements OnDestroy {
   actionSubscription: Subscription;
   inventoryBlocks = inventoryBlocks;
 
@@ -24,15 +25,9 @@ export class InventoryComponent implements OnInit, OnDestroy {
   constructor(private gameWorldUiService: GameWorldUiService) {
     this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
       lastGameplayAction => {
-        updateInventoryValues();
-        updateInventoryText();
+        updateInventory();
       }
     );
-  }
-
-  ngOnInit() {
-    updateInventoryValues();
-    updateInventoryText();
   }
 
   ngOnDestroy() {

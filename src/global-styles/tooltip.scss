@@ -1,0 +1,36 @@
+/////////////
+// Imports //
+/////////////
+
+
+
+/************/
+/* Tooltips */
+/************/
+
+.tooltipBox {
+    position: relative;
+    
+    visibility: hidden;
+    z-index: 3;
+}
+
+.tooltipText {
+    position: absolute;
+
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: lightsteelblue;
+
+    font: $fontDescription;
+    overflow-wrap: break-word;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tooltipHover:hover .tooltipBox {
+    visibility: visible;
+}
