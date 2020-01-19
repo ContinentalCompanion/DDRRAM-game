@@ -1,7 +1,7 @@
 // Core
 import { Component, OnInit } from '@angular/core';
 
-// App
+// App Functions
 //import { gameInit } from '../../game/game';
 
 @Component({

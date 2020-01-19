@@ -1,0 +1,60 @@
+/////////////
+// Imports //
+/////////////
+
+@import '../../../../global-styles/ui-styles.scss';
+@import '../../game-world/game-world.component.scss';
+
+
+////////////////////
+// SASS Letiables //
+////////////////////
+
+$dialogBoxBigHeight: 400px;
+$dialogBoxBigWidth: 320px;
+
+
+/**************/
+/* Containers */
+/**************/
+
+#dialogBoxBigContainer {
+    position: absolute;
+    
+    margin-top: calc(#{$gameWorldScreenHeight / 2} - #{$dialogBoxBigHeight / 2} - #{$borderDefaultThickness});
+    margin-left: calc(#{$gameWorldScreenWidth / 2} - #{$dialogBoxBigWidth / 2} - #{$borderDefaultThickness});
+
+    z-index: 2;
+}
+
+#dialogBoxBig {
+    width: $dialogBoxBigWidth;
+    height: $dialogBoxBigHeight;
+    box-sizing: border-box;
+
+    display: flex;
+    
+    justify-content: center;
+    -webkit-justify-content: center;
+
+    padding: $paddingDefault;
+    
+    border: $borderDefault;
+    border-radius: $roundedBorderDefault;
+
+    background-color: lightsteelblue;
+
+    //opacity: 0;
+}
+
+
+/********/
+/* Text */
+/********/
+
+#dialogBoxBigText {
+    position: absolute;
+
+    font: $fontTitleBig;
+    white-space: nowrap;
+}

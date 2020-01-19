@@ -1,10 +1,8 @@
-// Core Components
+// Core
 import { Component } from '@angular/core';
 
-// Game Button Lets
-import { gameButtons } from './game-buttons.lets';
-
 // App Lets
+import { gameButtons } from './game-buttons.lets';
 import { gameActionDialogBoxes } from '../dialog-box/dialog-box.lets';
 
 // App Services

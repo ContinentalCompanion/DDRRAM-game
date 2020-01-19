@@ -2,6 +2,7 @@ index.html.haml
 app/views/game-world/game-world.component.html.haml
 app/views/game-world/calendar/calendar.component.html.haml
 app/views/game-world/dialog-box/dialog-box.component.html.haml
+app/views/game-world/dialog-box-big/dialog-box-big.component.html.haml
 app/views/game-world/game-buttons/game-buttons.component.html.haml
 app/views/game-world/inventory/inventory.component.html.haml
 app/views/how-to-play/how-to-play.component.html.haml

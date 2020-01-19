@@ -8,6 +8,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { GameButtonsComponent } from './game-buttons/game-buttons.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { DialogBoxBigComponent } from './dialog-box-big/dialog-box-big.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { InventoryComponent } from './inventory/inventory.component';
     CalendarComponent,
     DialogBoxComponent,
     GameButtonsComponent,
-    InventoryComponent
+    InventoryComponent,
+    DialogBoxBigComponent
   ],
 
   // App Components
@@ -30,7 +32,8 @@ import { InventoryComponent } from './inventory/inventory.component';
     CalendarComponent,
     DialogBoxComponent,
     GameButtonsComponent,
-    InventoryComponent
+    InventoryComponent,
+    DialogBoxBigComponent
   ]
 })
 

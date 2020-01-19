@@ -3,8 +3,13 @@ import { Component, OnDestroy } from '@angular/core';
 import { GameWorldUiService } from '../game-world-ui.service';
 import { Subscription } from 'rxjs';
 
-// App
-import { date, gameTimeLets } from '../../../game/game-time/game-time.lets';
+// App Lets
+import { gameTimeLets } from '../../../game/game-time/game-time.lets';
+
+// App Classes
+import { date } from '../../../game/game-time/game-time.lets';
+
+// App Functions
 import { convertDaysToDate } from '../../../game/game-time/game-time';
 
 @Component({

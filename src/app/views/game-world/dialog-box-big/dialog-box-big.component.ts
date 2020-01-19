@@ -3,33 +3,32 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 // App Lets
-import { inventoryBlocks } from './inventory.lets';
+import { gameTimeLets } from '../../../game/game-time/game-time.lets';
 
 // App Services
 import { GameWorldUiService } from '../game-world-ui.service';
 
-// App Functions
-import { updateInventory } from './inventory.lets';
-// import { updateInventoryValues, updateInventoryText } from './inventory.lets';
-
-
 @Component({
-  selector: 'inventory',
-  templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.scss']
+  selector: 'dialog-box-big',
+  templateUrl: './dialog-box-big.component.html',
+  styleUrls: ['./dialog-box-big.component.scss']
 })
 
-export class InventoryComponent implements OnDestroy {
+export class DialogBoxBigComponent implements OnDestroy {
+  daysElapsed = gameTimeLets.daysElapsed;
   actionSubscription: Subscription;
-  inventoryBlocks = inventoryBlocks;
 
-  // When gameplay action is taken, update Inventory UI
+  // When gameplay action is taken, update Game Time Lets
   constructor(private gameWorldUiService: GameWorldUiService) {
     this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
       lastGameplayAction => {
-        updateInventory();
+        this.updateGameTimeLets();
       }
     );
+  }
+
+  updateGameTimeLets() {
+    this.daysElapsed = gameTimeLets.daysElapsed;
   }
 
   ngOnDestroy() {
