@@ -17,7 +17,7 @@ $inventoryTooltipHeight: 50px;
 
 
 /**************/
-/* Game World */
+/* Containers */
 /**************/
 
 #inventoryUI {
@@ -41,6 +41,20 @@ $inventoryTooltipHeight: 50px;
     border: $borderDefault;
 }
 
+.inventoryIconGroup {
+    margin: 0px $marginDefault;
+}
+
+
+/***************/
+/* Positioning */
+/***************/
+
+.inventoryTooltipPosition {
+    right: 60%;
+    bottom: $inventoryTooltipHeight + $inventoryHorizontalGroupHeight;
+}
+
 .firstIB {
     margin-left: 0;
 }
@@ -50,6 +64,10 @@ $inventoryTooltipHeight: 50px;
 }
 
 
+/********/
+/* Text */
+/********/
+
 .inventoryTitle {
     margin: 0px;
     padding: 0px;
@@ -58,13 +76,19 @@ $inventoryTooltipHeight: 50px;
     text-align: center;
 }
 
-.inventoryIconGroup {
-    margin: 0px $marginDefault;
-}
+
+/*********/
+/* Icons */
+/*********/
 
 .inventoryIcon {
     display: inline-block;
 }
+
+
+/************/
+/* Counters */
+/************/
 
 .inventoryCounter {
     display: inline-block;
@@ -76,9 +100,4 @@ $inventoryTooltipHeight: 50px;
     border-radius: $roundedBorderDefault;
 
     font: $fontCounter;
-}
-
-.inventoryTooltipPosition {
-    right: 60%;
-    bottom: $inventoryTooltipHeight + $inventoryHorizontalGroupHeight;
 }

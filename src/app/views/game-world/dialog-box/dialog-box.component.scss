@@ -15,7 +15,7 @@ $dialogBoxTextHeight: 18px;
 
 
 /**************/
-/* Game World */
+/* Containers */
 /**************/
 
 #dialogBoxContainer {
@@ -49,12 +49,10 @@ $dialogBoxTextHeight: 18px;
     opacity: 0;
 }
 
-#dialogBoxIcon {
-    position: absolute;
-    align-self: flex-start;
-    -webkit-align-self: flex-start;
-    left: $paddingDefault;
-}
+
+/********/
+/* Text */
+/********/
 
 #dialogBoxText {
     position: absolute;
@@ -66,4 +64,16 @@ $dialogBoxTextHeight: 18px;
     font: $fontTitleSmall;
     text-align: center;
     white-space: nowrap;
+}
+
+
+/*********/
+/* Icons */
+/*********/
+
+#dialogBoxIcon {
+    position: absolute;
+    align-self: flex-start;
+    -webkit-align-self: flex-start;
+    left: $paddingDefault;
 }

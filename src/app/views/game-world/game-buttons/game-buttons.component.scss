@@ -17,7 +17,7 @@ $gameButtonTitleHeight: 18px;
 
 
 /**************/
-/* Game World */
+/* Containers */
 /**************/
 
 .gameButtonVerticalGroup {
@@ -43,6 +43,16 @@ $gameButtonTitleHeight: 18px;
     background-color: darkseagreen;
 }
 
+.gameButtonTooltipBox {
+    bottom: 10px;
+    left: $gameButtonWidth;
+}
+
+
+/********/
+/* Text */
+/********/
+
 .gameButtonTitle {
     height: $gameButtonTitleHeight;
     
@@ -56,17 +66,17 @@ $gameButtonTitleHeight: 18px;
     white-space: nowrap;
 }
 
+.gameButtonTooltipText {
+    width: 105px;
+}
+
+
+/*********/
+/* Icons */
+/*********/
+
 .gameButtonIcon {
     position: absolute;
     align-self: flex-start;
     -webkit-align-self: flex-start;
-}
-
-.gameButtonTooltipBox {
-    bottom: 10px;
-    left: $gameButtonWidth;
-}
-
-.gameButtonTooltipText {
-    width: 105px;
 }

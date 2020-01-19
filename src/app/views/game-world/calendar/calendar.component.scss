@@ -15,7 +15,7 @@ $calendarDisplayHeight: 100px;
 
 
 /**************/
-/* Game World */
+/* Containers */
 /**************/
 
 #calendarDisplayContainer {
@@ -50,6 +50,11 @@ $calendarDisplayHeight: 100px;
     background-color: lightsteelblue;
 }
 
+
+/********/
+/* Text */
+/********/
+
 .calendarTitle {
     margin: 0px;
     padding: 0px;
@@ -57,6 +62,11 @@ $calendarDisplayHeight: 100px;
     font: $fontTitleBig;
     text-align: center;
 }
+
+
+/************/
+/* Counters */
+/************/
 
 .calendarCounter {
     display: inline-block;
