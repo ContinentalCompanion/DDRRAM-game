@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 
 // App Lets
+import { gameEngine } from '../../../game/game.lets'
 import { gameButtons } from './game-buttons.lets';
 import { gameActionDialogBoxes } from '../dialog-box/dialog-box.lets';
 
@@ -29,6 +30,10 @@ export class GameButtonsComponent {
   };
 
   takeGameplayAction(action1: string) {
+    // Disable actions during cinematics
+    if (gameEngine.actionsEnabled == false)
+      return;
+
     // Update Game World UI
     let result1: number;
     switch (action1) {

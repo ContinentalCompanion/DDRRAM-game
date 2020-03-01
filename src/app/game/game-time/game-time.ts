@@ -13,7 +13,6 @@
 /////////////
 
 import { gameTimeLets, date } from "./game-time.lets";
-import { gameLets } from "../game.lets";
 
 
 //////////
@@ -91,12 +90,4 @@ export function convertDaysToDate(days: number) {
 
 export function progressTime() {
     gameTimeLets.daysElapsed++;
-    let newCash = gameLets.cash;
-
-    // Pay bills every week
-    if (gameTimeLets.daysElapsed % 7 == 0)
-        newCash -= gameLets.bills;
-
-    // Negative cash = defeat
-    return newCash;
 }

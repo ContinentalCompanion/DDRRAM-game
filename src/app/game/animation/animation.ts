@@ -12,6 +12,7 @@
 /////////////
 
 import * as animLets from "./animation.lets";
+import { gameEngine } from "../game.lets";
 
 
 ////////////////
@@ -27,6 +28,9 @@ export function popUpDialogBoxAnim() { beginAnim(animLets.popUpDialogBox()); }
 
 // Coroutine wrapper
 function beginAnim(animType: animLets.anim) {
+	if (animType.actEnabled == false)              // Disable actions during important anims
+		gameEngine.actionsEnabled = false;
+	gameEngine.currAnims.push(animType);           // Update list of playing anims
 	clearInterval(animType.id);                    // End animations already playing
 	animType.coroutine = animate(animType);        // Instantiate coroutine
 	animType.coroutine.next();                     // Execute until the first yield
@@ -71,15 +75,30 @@ function selectAnim(animType: animLets.anim, seqType: string) {
 		// Reset loop index
 		animType.loopIndex = 0;
 
-		// Start next animation loop in sequence
+		// If anim not done, start next animation loop in sequence
 		animType.seqIndex++;
 		if (animType.sequence[animType.seqIndex] != null) {
 			animType.coroutine.next(animType.sequence[animType.seqIndex])
 		}
 
+		// If done, cleanup anim
 		else {
-			// If no more, reset animation sequence index
+			// Reset animation sequence index
 			animType.seqIndex = 0;
+
+			// Remove anim from list of currently playing anims
+			let index = gameEngine.currAnims.indexOf(animType);
+			if (index > -1)
+				gameEngine.currAnims.splice(index, 1)
+			
+			// If there are still important anims playing, finish and exit function
+			for (let anim of gameEngine.currAnims) {
+				if (anim.actEnabled == false)
+					return;
+			}
+
+			// Otherwise, reenable actions, then finish
+			gameEngine.actionsEnabled = true;
 		}
 	}
 }

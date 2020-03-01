@@ -15,5 +15,15 @@ export const gameLets = {
 	bills: 30,
 	raise: 2,
 	raiseChance: 0.25,
-	memeChanceIncrease: 0.02,
+	memeChanceIncrease: 0.02
+}
+
+
+////////////
+// Engine //
+////////////
+
+export const gameEngine = {
+	actionsEnabled: true,  // Used to disable actions during cinematics
+	currAnims: [],
 }

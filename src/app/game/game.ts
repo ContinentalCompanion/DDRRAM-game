@@ -13,6 +13,7 @@
 
 // App Lets
 import { gameLets } from "./game.lets";
+import { gameTimeLets } from "./game-time/game-time.lets";
 
 // App Functions
 import { progressTime } from "./game-time/game-time";
@@ -112,8 +113,17 @@ export function education() {
 // Game //
 //////////
 
+export function gameInit() {
+	// *DEPRECATED* UI now handled through Angular modules and components
+	//findDocElems();
+	//initInvUI();
+	//updateCalUI();
+	//addGameButtonListeners();
+}
+
 export function appGameLoop() {
-	gameLets.cash = progressTime();
+	progressTime();
+	gameLets.cash = updateCash();
 
 	if (gameLets.cash < 0)
 		defeat();
@@ -123,14 +133,17 @@ export function appGameLoop() {
 	//updateCalUI();
 }
 
-function defeat() {
-	console.log("Game over!");
+function updateCash() {
+	let newCash = gameLets.cash;
+
+    // Pay bills every week
+    if (gameTimeLets.daysElapsed % 7 == 0)
+        newCash -= gameLets.bills;
+
+    // Negative cash = defeat
+    return newCash;
 }
 
-export function gameInit() {
-	// *DEPRECATED* UI now handled through Angular modules and components
-	//findDocElems();
-	//initInvUI();
-	//updateCalUI();
-	//addGameButtonListeners();
+function defeat() {
+	console.log("Game over!");
 }
