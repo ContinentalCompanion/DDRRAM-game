@@ -3,12 +3,14 @@ import { Component, Input, OnDestroy } from '@angular/core';
 import { GameActionService } from '../game-action/game-action.service';
 import { Subscription } from 'rxjs';
 
+// App Classes
+import { dialogBox } from '../dialog-box/dialog-box.lets'
+
 // App Lets
 import { animPopUpDialogBox } from '../../../game/animation/animation.lets';
 
 // App Functions
 import { beginAnim } from '../../../game/animation/animation';
-import { updateDialogBoxes } from './dialog-box.lets';
 
 
 @Component({
@@ -28,20 +30,15 @@ export class DialogBoxComponent implements OnDestroy {
   resultSubscription: Subscription;
   
   // Data streams from subscriptions
-  @Input() result: number;
-  @Input() dialogBox: {
-    icon: string,
-    successColor: string,
-    failColor: string,
-    successText: string,
-    failText: string};
+  @Input() result1: number;
+  @Input() dialogBox1: dialogBox;
   
   // When a gameplay action is taken, update dialog box
   constructor(private GameActionService: GameActionService) {
     this.dialogBoxSubscription = GameActionService.dialogBox$.subscribe(
       dialogBox => {
-        updateDialogBoxes();
-        this.dialogBox = dialogBox;
+        dialogBox.update();
+        this.dialogBox1 = dialogBox;
         this.dialogBoxIcon = dialogBox.icon;
         this.dialogBoxText = dialogBox.successText;
         beginAnim(animPopUpDialogBox);
@@ -50,16 +47,16 @@ export class DialogBoxComponent implements OnDestroy {
     
     this.resultSubscription = GameActionService.result$.subscribe(
       result => {
-        this.result = result;
+        this.result1 = result;
 
-        if (this.result == 1) {
-          this.dialogBoxColor = this.dialogBox.successColor;
-          this.dialogBoxText = this.dialogBox.successText;
+        if (this.result1 == 1) {
+          this.dialogBoxColor = this.dialogBox1.successColor;
+          this.dialogBoxText = this.dialogBox1.successText;
         }
 
-        else if (this.result == 0) {
-          this.dialogBoxColor = this.dialogBox.failColor;
-          this.dialogBoxText = this.dialogBox.failText;
+        else if (this.result1 == 0) {
+          this.dialogBoxColor = this.dialogBox1.failColor;
+          this.dialogBoxText = this.dialogBox1.failText;
         }
       }
     );

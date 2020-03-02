@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 // App Lets
 import { gameEngine } from '../../../game/game.lets'
 import { gameButtons } from './game-buttons.lets';
-import { dialogBoxes } from '../dialog-box/dialog-box.lets';
+import * as dialogBoxes from '../dialog-box/dialog-box.lets';
 
 // App Services
 import { GameActionService } from '../game-action/game-action.service';
@@ -38,19 +38,19 @@ export class GameButtonsComponent {
     switch (action1) {
       case "meme":
         result1 = meme();
-        this.GameActionService.updateDialogBox(dialogBoxes[0]);
+        this.GameActionService.updateDialogBox(dialogBoxes.memeDialogBox);
         break;
       case "trainMemery":
         result1 = trainMemery();
-        this.GameActionService.updateDialogBox(dialogBoxes[1]);
+        this.GameActionService.updateDialogBox(dialogBoxes.trainMemeryDialogBox);
         break;
       case "work":
         result1 = work();
-        this.GameActionService.updateDialogBox(dialogBoxes[2]);
+        this.GameActionService.updateDialogBox(dialogBoxes.workDialogBox);
         break;
       case "education":
         result1 = education();
-        this.GameActionService.updateDialogBox(dialogBoxes[3]);
+        this.GameActionService.updateDialogBox(dialogBoxes.educationDialogBox);
         break;
       default:
         break;

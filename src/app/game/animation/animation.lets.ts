@@ -19,7 +19,11 @@ export class anim {
 	id = null;             // Animation SetInterval() id
 	coroutine = null;      // Animation coroutine function
 
-	constructor(objNames: string[], sequences: string[], tickCount: number[], tickDelay: number,  actEnabled: boolean) {
+	constructor(objNames: string[],
+				sequences: string[],
+				tickCount: number[],
+				tickDelay: number,
+				actEnabled: boolean) {
 		this.objNames = objNames;
 		this.sequences = sequences;
 		this.tickCount = tickCount;
@@ -50,9 +54,9 @@ export function animInit() {
 /////////////////////////
 
 export const animPopUpDialogBox = new anim (
-	["dialogBox"],                         // Names of objects affected by each sequence
-	["fadeIn", "pause", "fadeOut", null],  // List of anim sequences
-	[8, 32, 8, null],                      // # of frames in each anim sequence
-	33,                                    // ms between each anim frame
-	true                                   // Are actions enabled during anim?
+	["dialogBox"],                         // objNames
+	["fadeIn", "pause", "fadeOut", null],  // sequences
+	[8, 32, 8, null],                      // tickCount
+	33,                                    // tickDelay
+	true                                   // actEnabled
 )

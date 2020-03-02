@@ -10,7 +10,8 @@
 export const uiLets = {
 	successColor: "lightgreen",
 	failColor: "tomato",
-	neutralColor: "lightsteelblue"
+	neutralColor: "lightsteelblue",
+	null: ""
 }
 
 export const gameActionIcons = {

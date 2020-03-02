@@ -6,53 +6,73 @@ import { gameLets } from "../../../game/game.lets";
 import { uiLets, gameActionIcons } from "../../../game/ui/ui.lets";
 
 
-//////////////////
-// Game Actions //
-//////////////////
+/////////////
+// Classes //
+/////////////
 
-export const dialogBoxes = [
-    {   // [0] Meme
-        icon: gameActionIcons.memeIcon,
-        successColor: uiLets.successColor,
-        failColor: uiLets.failColor,
-        successText: "<b>Meme Success!</b>",
-        failText: "<b>Meme Failure...</b>",
+export class dialogBox {
+    icon: string;
+    successColor: string;
+    failColor: string;
+    successText: string;
+    failText: string;
+    update;  // function to update vars in text
 
-        update: function() {}
-    },
-    {   // [1] Train Memery
-        icon: gameActionIcons.trainMemeryIcon,
-        successColor: uiLets.successColor,
-        failColor: uiLets.neutralColor,
-        successText: "<b>Memery Skill Increased!</b><br>+" +
-            (gameLets.memeChanceIncrease * 100).toString() + "% meme chance",
-        failText: "<b>Can't Train Memery!</b>" + "<br>Your memery skill is maxed",
-
-        update: function() {}
-    },
-    {   // [2] Work
-        icon: gameActionIcons.workIcon,
-        successColor: uiLets.successColor,
-        failColor: "",
-        successText: "<b>Work Complete!</b><br>$" + gameLets.salary.toString() + " earned",
-        failText: "",
-
-        update: function() {
-            this.successText = "<b>Work Complete!</b><br>$" + gameLets.salary.toString() + " earned";
-        }
-    },
-    {   // [3] Education
-        icon: gameActionIcons.educationIcon,
-        successColor: uiLets.successColor,
-        failColor: uiLets.failColor,
-        successText: "<b>Education Successful!</b><br>Salary increased by $" + gameLets.raise.toString(),
-        failText: "<b>Education Failure...</b>",
-
-        update: function() {}
+    constructor(icon: string,
+                successColor: string,
+                failColor: string,
+                successText: string,
+                failText: string,
+                update) {
+        this.icon = icon;
+        this.successColor = successColor;
+        this.failColor = failColor;
+        this.successText = successText;
+        this.failText = failText;
+        this.update = update;
     }
-]
-
-export function updateDialogBoxes() {
-    for (let gameActionDialogBox of dialogBoxes)
-        gameActionDialogBox.update();
 }
+
+
+//////////////////
+// Dialog Boxes //
+//////////////////
+
+export const memeDialogBox = new dialogBox (
+    gameActionIcons.memeIcon,  // icon
+    uiLets.successColor,       // successColor
+    uiLets.failColor,          // failColor
+    "<b>Meme Success!</b>",    // successText
+    "<b>Meme Failure...</b>",  // failText
+    function() {}              // update
+)
+
+export const trainMemeryDialogBox = new dialogBox (
+    gameActionIcons.trainMemeryIcon,
+    uiLets.successColor,
+    uiLets.neutralColor,
+    "<b>Memery Skill Increased!</b><br>+" + (gameLets.memeChanceIncrease * 100).toString() + "% meme chance",
+    "<b>Can't Train Memery!</b>" + "<br>Your memery skill is maxed",
+    function() {}
+)
+
+export const workDialogBox = new dialogBox (
+    gameActionIcons.workIcon,
+    uiLets.successColor,
+    uiLets.null,
+    "<b>Work Complete!</b><br>$" + gameLets.salary.toString() + " earned",
+    uiLets.null,
+
+    function() {
+        this.successText = "<b>Work Complete!</b><br>$" + gameLets.salary.toString() + " earned";
+    }
+)
+
+export const educationDialogBox = new dialogBox (
+    gameActionIcons.educationIcon,
+    uiLets.successColor,
+    uiLets.failColor,
+    "<b>Education Successful!</b><br>" + "Salary increased by $" + gameLets.raise.toString(),
+    "<b>Education Failure...</b>",
+    function() {}
+)
