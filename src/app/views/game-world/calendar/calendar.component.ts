@@ -1,6 +1,6 @@
 // Core
 import { Component, OnDestroy } from '@angular/core';
-import { GameWorldUiService } from '../game-world-ui.service';
+import { GameActionService } from '../game-action/game-action.service';
 import { Subscription } from 'rxjs';
 
 // App Lets
@@ -19,19 +19,22 @@ import { convertDaysToDate } from '../../../game/game-time/game-time';
 })
 
 export class CalendarComponent implements OnDestroy {
+  // Current calendar properties
   currentDate: date = convertDaysToDate(gameTimeLets.startDate);
   month = this.currentDate.month;
   day = this.currentDate.day;
   year = this.currentDate.year;
 
+  // Subscription to update calendar when a gameplay action is taken
   actionSubscription: Subscription;
 
   // When gameplay action is taken, update calendar
-  constructor(private gameWorldUiService: GameWorldUiService) {
-    this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
-      lastGameplayAction => {
+  constructor(private GameActionService: GameActionService) {
+    this.actionSubscription = GameActionService.action$.subscribe(
+      action => {
         this.updateCalendar();
-    });
+      }
+    );
   }
 
   updateCalendar() {
@@ -42,6 +45,7 @@ export class CalendarComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    // Clean up event subscriptions
     this.actionSubscription.unsubscribe();
   }
 }

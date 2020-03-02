@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { gameTimeLets } from '../../../game/game-time/game-time.lets';
 
 // App Services
-import { GameWorldUiService } from '../game-world-ui.service';
+import { GameActionService } from '../game-action/game-action.service';
 
 @Component({
   selector: 'dialog-box-big',
@@ -15,23 +15,27 @@ import { GameWorldUiService } from '../game-world-ui.service';
 })
 
 export class DialogBoxBigComponent implements OnDestroy {
+  // Current properties
   daysElapsed = gameTimeLets.daysElapsed;
+
+  // Subscription to update properties when a gameplay action is taken
   actionSubscription: Subscription;
 
-  // When gameplay action is taken, update Game Time Lets
-  constructor(private gameWorldUiService: GameWorldUiService) {
-    this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
-      lastGameplayAction => {
-        this.updateGameTimeLets();
+  // When gameplay action is taken, update properties
+  constructor(private GameActionService: GameActionService) {
+    this.actionSubscription = GameActionService.action$.subscribe(
+      action => {
+        this.updateText();
       }
     );
   }
 
-  updateGameTimeLets() {
+  updateText() {
     this.daysElapsed = gameTimeLets.daysElapsed;
   }
 
   ngOnDestroy() {
+    // Clean up event subscriptions
     this.actionSubscription.unsubscribe();
   }
 }

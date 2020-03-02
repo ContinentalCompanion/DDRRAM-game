@@ -1,6 +1,6 @@
 // Core
 import { Component, Input, OnDestroy } from '@angular/core';
-import { GameWorldUiService } from '../game-world-ui.service';
+import { GameActionService } from '../game-action/game-action.service';
 import { Subscription } from 'rxjs';
 
 // App Lets
@@ -8,7 +8,7 @@ import { animPopUpDialogBox } from '../../../game/animation/animation.lets';
 
 // App Functions
 import { beginAnim } from '../../../game/animation/animation';
-import { updateGameActionDialogBoxes } from './dialog-box.lets';
+import { updateDialogBoxes } from './dialog-box.lets';
 
 
 @Component({
@@ -23,37 +23,43 @@ export class DialogBoxComponent implements OnDestroy {
   dialogBoxColor: string;
   dialogBoxText: string;
 
-  // Subscription to update dialog box when a gameplay action is taken
-  actionSubscription: Subscription;
+  // Subscriptions to update dialog box when a gameplay action is taken
+  dialogBoxSubscription: Subscription;
   resultSubscription: Subscription;
-  @Input() lastGameplayAction: {icon: string, successColor: string,
-    failColor: string, successText: string, failText: string};
-  @Input() lastGameplayActionResult: number;
+  
+  // Data streams from subscriptions
+  @Input() result: number;
+  @Input() dialogBox: {
+    icon: string,
+    successColor: string,
+    failColor: string,
+    successText: string,
+    failText: string};
   
   // When a gameplay action is taken, update dialog box
-  constructor(private gameWorldUiService: GameWorldUiService) {
-    this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
-      lastGameplayAction => {
-        updateGameActionDialogBoxes();
-        this.lastGameplayAction = lastGameplayAction;
-        this.dialogBoxIcon = lastGameplayAction.icon;
-        this.dialogBoxText = lastGameplayAction.successText;
+  constructor(private GameActionService: GameActionService) {
+    this.dialogBoxSubscription = GameActionService.dialogBox$.subscribe(
+      dialogBox => {
+        updateDialogBoxes();
+        this.dialogBox = dialogBox;
+        this.dialogBoxIcon = dialogBox.icon;
+        this.dialogBoxText = dialogBox.successText;
         beginAnim(animPopUpDialogBox);
       }
     );
+    
+    this.resultSubscription = GameActionService.result$.subscribe(
+      result => {
+        this.result = result;
 
-    this.resultSubscription = gameWorldUiService.lastGameplayActionResult$.subscribe(
-      lastGameplayActionResult => {
-        this.lastGameplayActionResult = lastGameplayActionResult;
-
-        if (this.lastGameplayActionResult == 1) {
-          this.dialogBoxColor = this.lastGameplayAction.successColor;
-          this.dialogBoxText = this.lastGameplayAction.successText;
+        if (this.result == 1) {
+          this.dialogBoxColor = this.dialogBox.successColor;
+          this.dialogBoxText = this.dialogBox.successText;
         }
 
-        else if (this.lastGameplayActionResult == 0) {
-          this.dialogBoxColor = this.lastGameplayAction.failColor;
-          this.dialogBoxText = this.lastGameplayAction.failText;
+        else if (this.result == 0) {
+          this.dialogBoxColor = this.dialogBox.failColor;
+          this.dialogBoxText = this.dialogBox.failText;
         }
       }
     );
@@ -61,7 +67,7 @@ export class DialogBoxComponent implements OnDestroy {
 
   ngOnDestroy() {
     // Clean up event subscriptions
-    this.actionSubscription.unsubscribe();
+    this.dialogBoxSubscription.unsubscribe();
     this.resultSubscription.unsubscribe();
   }
 }

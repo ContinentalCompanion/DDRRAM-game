@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GameWorldUiService } from './game-world-ui.service';
+import { GameActionService } from './game-action.service';
 
-describe('GameWorldUiService', () => {
+describe('GameActionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GameWorldUiService = TestBed.get(GameWorldUiService);
+    const service: GameActionService = TestBed.get(GameActionService);
     expect(service).toBeTruthy();
   });
 });

@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { inventoryBlocks } from './inventory.lets';
 
 // App Services
-import { GameWorldUiService } from '../game-world-ui.service';
+import { GameActionService } from '../game-action/game-action.service';
 
 // App Functions
 import { updateInventory } from './inventory.lets';
@@ -20,19 +20,23 @@ import { updateInventory } from './inventory.lets';
 })
 
 export class InventoryComponent implements OnDestroy {
-  actionSubscription: Subscription;
+  // Defined in inventory.lets.ts, used in Angular HTML
   inventoryBlocks = inventoryBlocks;
 
+  // Subscription to update properties when a gameplay action is taken
+  actionSubscription: Subscription;
+
   // When gameplay action is taken, update Inventory UI
-  constructor(private gameWorldUiService: GameWorldUiService) {
-    this.actionSubscription = gameWorldUiService.lastGameplayAction$.subscribe(
-      lastGameplayAction => {
+  constructor(private GameActionService: GameActionService) {
+    this.actionSubscription = GameActionService.dialogBox$.subscribe(
+      dialogBox => {
         updateInventory();
       }
     );
   }
 
   ngOnDestroy() {
+    // Clean up event subscriptions
     this.actionSubscription.unsubscribe();
   }
 }

@@ -10,8 +10,8 @@ import { uiLets, gameActionIcons } from "../../../game/ui/ui.lets";
 // Game Actions //
 //////////////////
 
-export const gameActionDialogBoxes = [
-    {   // Meme
+export const dialogBoxes = [
+    {   // [0] Meme
         icon: gameActionIcons.memeIcon,
         successColor: uiLets.successColor,
         failColor: uiLets.failColor,
@@ -20,7 +20,7 @@ export const gameActionDialogBoxes = [
 
         update: function() {}
     },
-    {   // Train Memery
+    {   // [1] Train Memery
         icon: gameActionIcons.trainMemeryIcon,
         successColor: uiLets.successColor,
         failColor: uiLets.neutralColor,
@@ -30,7 +30,7 @@ export const gameActionDialogBoxes = [
 
         update: function() {}
     },
-    {   // Work
+    {   // [2] Work
         icon: gameActionIcons.workIcon,
         successColor: uiLets.successColor,
         failColor: "",
@@ -41,7 +41,7 @@ export const gameActionDialogBoxes = [
             this.successText = "<b>Work Complete!</b><br>$" + gameLets.salary.toString() + " earned";
         }
     },
-    {   // Education
+    {   // [3] Education
         icon: gameActionIcons.educationIcon,
         successColor: uiLets.successColor,
         failColor: uiLets.failColor,
@@ -52,7 +52,7 @@ export const gameActionDialogBoxes = [
     }
 ]
 
-export function updateGameActionDialogBoxes() {
-    for (let gameActionDialogBox of gameActionDialogBoxes)
+export function updateDialogBoxes() {
+    for (let gameActionDialogBox of dialogBoxes)
         gameActionDialogBox.update();
 }

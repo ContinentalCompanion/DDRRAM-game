@@ -13,7 +13,7 @@ import { GameWorldComponent } from './views/game-world/game-world.component';
 import { HowToPlayComponent } from './views/how-to-play/how-to-play.component';
 
 // App Sergices
-import { GameWorldUiService } from '../app/views/game-world/game-world-ui.service';
+import { GameActionService } from './views/game-world/game-action/game-action.service';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { GameWorldUiService } from '../app/views/game-world/game-world-ui.servic
   ],
 
   // App Services
-  providers: [GameWorldUiService],
+  providers: [GameActionService],
 
   // Start App at Main Component
   bootstrap: [AppComponent]
