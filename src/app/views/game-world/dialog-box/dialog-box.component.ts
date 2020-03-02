@@ -3,8 +3,11 @@ import { Component, Input, OnDestroy } from '@angular/core';
 import { GameWorldUiService } from '../game-world-ui.service';
 import { Subscription } from 'rxjs';
 
+// App Lets
+import { animPopUpDialogBox } from '../../../game/animation/animation.lets';
+
 // App Functions
-import { popUpDialogBoxAnim } from '../../../game/animation/animation';
+import { beginAnim } from '../../../game/animation/animation';
 import { updateGameActionDialogBoxes } from './dialog-box.lets';
 
 
@@ -15,15 +18,17 @@ import { updateGameActionDialogBoxes } from './dialog-box.lets';
 })
 
 export class DialogBoxComponent implements OnDestroy {
+  // Current dialog box properties
+  dialogBoxIcon: string;
+  dialogBoxColor: string;
+  dialogBoxText: string;
+
+  // Subscription to update dialog box when a gameplay action is taken
   actionSubscription: Subscription;
   resultSubscription: Subscription;
   @Input() lastGameplayAction: {icon: string, successColor: string,
     failColor: string, successText: string, failText: string};
   @Input() lastGameplayActionResult: number;
-
-  dialogBoxIcon: string;
-  dialogBoxColor: string;
-  dialogBoxText: string;
   
   // When a gameplay action is taken, update dialog box
   constructor(private gameWorldUiService: GameWorldUiService) {
@@ -33,7 +38,7 @@ export class DialogBoxComponent implements OnDestroy {
         this.lastGameplayAction = lastGameplayAction;
         this.dialogBoxIcon = lastGameplayAction.icon;
         this.dialogBoxText = lastGameplayAction.successText;
-        popUpDialogBoxAnim();
+        beginAnim(animPopUpDialogBox);
       }
     );
 
@@ -55,6 +60,7 @@ export class DialogBoxComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    // Clean up event subscriptions
     this.actionSubscription.unsubscribe();
     this.resultSubscription.unsubscribe();
   }

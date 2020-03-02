@@ -15,25 +15,21 @@
 import { gameLets } from "./game.lets";
 import { gameTimeLets } from "./game-time/game-time.lets";
 
+// App Init Functions
+import { animInit } from "./animation/animation.lets"
+
 // App Functions
 import { progressTime } from "./game-time/game-time";
-
-// *DEPRECATED* UI now handled through Angular modules and components
-//import { uiLets, docElems, findDocElems } from "./ui/ui.lets"
-//import { initInvUI, updateInvUI, showDialogBox, } from "./ui/ui";
 
 
 //////////
 // Init //
 //////////
 
-// *DEPRECATED* Button clicks now handled through Angular modules and components
-// export function addGameButtonListeners() {
-// 	docElems.memeButton.addEventListener("click", meme, false);
-// 	docElems.trainMemeryButton.addEventListener("click", trainMemery, false);
-// 	docElems.workButton.addEventListener("click", work, false);
-// 	docElems.educationButton.addEventListener("click", education, false);
-// }
+// Run once when game world screen is opened (in game-world.component)
+export function gameInit() {
+	animInit();  // Init anims (finds HTML Elements to animate)
+}
 
 
 //////////////////////
@@ -48,17 +44,11 @@ export function meme() {
 		gameLets.memes += 1;
 		appGameLoop();
 		return 1;
-
-		// *DEPRECATED* UI now handled through Angular modules and components
-		//showDialogBox(uiLets.memeSuccessText, uiLets.successColor, uiLets.memeIcon);
 	}
 
 	else {
 		appGameLoop();
 		return 0;
-
-		// *DEPRECATED* UI now handled through Angular modules and components
-		//showDialogBox(uiLets.memeFailureText, uiLets.failColor, uiLets.memeIcon);
 	}
 }
 
@@ -68,16 +58,10 @@ export function trainMemery() {
 		gameLets.memeChance += gameLets.memeChanceIncrease;
 		appGameLoop();
 		return 1;
-		
-		// *DEPRECATED* UI now handled through Angular modules and components
-		//showDialogBox(uiLets.trainMemeryText, uiLets.successColor, uiLets.trainMemeryIcon);		
 	}
 
 	else {
 		return 0;
-
-		// *DEPRECATED* UI now handled through Angular modules and components
-		//showDialogBox(uiLets.trainMemeryErrorText, uiLets.neutralColor, uiLets.trainMemeryIcon);
 	}
 }
 
@@ -85,9 +69,6 @@ export function work() {
 	gameLets.cash += gameLets.salary;
 	appGameLoop();
 	return 1;
-
-	// *DEPRECATED* UI now handled through Angular modules and components
-	//showDialogBox(uiLets.workText, uiLets.successColor, uiLets.workIcon);
 }
 
 export function education() {
@@ -95,16 +76,11 @@ export function education() {
 		gameLets.salary += gameLets.raise;
 		appGameLoop();
 		return 1;
-
-		// *DEPRECATED* UI now handled through Angular modules and components
-		//showDialogBox(uiLets.educationSuccessText, uiLets.successColor, uiLets.educationIcon);
 	}
+
 	else {
 		appGameLoop();
 		return 0;
-
-		// *DEPRECATED* UI now handled through Angular modules and components
-		//showDialogBox(uiLets.educationFailureText, uiLets.failColor, uiLets.educationIcon);
 	}
 }
 
@@ -113,24 +89,12 @@ export function education() {
 // Game //
 //////////
 
-export function gameInit() {
-	// *DEPRECATED* UI now handled through Angular modules and components
-	//findDocElems();
-	//initInvUI();
-	//updateCalUI();
-	//addGameButtonListeners();
-}
-
 export function appGameLoop() {
 	progressTime();
 	gameLets.cash = updateCash();
 
 	if (gameLets.cash < 0)
 		defeat();
-
-	// *DEPRECATED* UI now handled through Angular modules and components
-	//updateInvUI();
-	//updateCalUI();
 }
 
 function updateCash() {

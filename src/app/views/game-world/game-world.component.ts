@@ -1,8 +1,9 @@
 // Core
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
-// App Functions
-//import { gameInit } from '../../game/game';
+// App Init Functions
+import { gameInit } from '../../game/game';
+
 
 @Component({
   selector: 'app-game-world',
@@ -10,12 +11,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-world.component.scss']
 })
 
-export class GameWorldComponent implements OnInit {
+export class GameWorldComponent implements AfterViewInit {
   constructor() {}
-  ngOnInit() {/*gameInit();*/}
 
-  // Game World Events
-  receiveGameplayActionEvent(event1: {action: string, result: number}) {
-    
+  ngAfterViewInit() {
+    gameInit();
   }
 }

@@ -1,40 +1,58 @@
-/////////////
-// Classes //
-/////////////
+///////////////
+// Templates //
+///////////////
 
-// Animation template
 export class anim {
-	object: HTMLElement; // Object animated
-	tickDelay: number;   // ms between each anim frame
-	tickCount: number[]; // # of frames in each anim sequence
-	sequence: string[];  // list of anim sequences
-	actEnabled: boolean; // are actions enabled during anim?
-	
-	constructor(object: HTMLElement, tickDelay: number, tickCount: number[], sequence: string[], actEnabled: boolean) {
-		this.object = object;
-		this.tickDelay = tickDelay;
+	// Private anim params
+	private objNames: string[]; // Names of objects
+
+	// Public anim params
+	objects: HTMLElement[] = []; // Each seq is applied to all objs
+	sequences: string[];         // List of anim sequences
+	tickCount: number[];         // # of frames in each anim sequence
+	tickDelay: number;           // ms between each anim frame
+	actEnabled: boolean;         // Are actions enabled during anim?
+
+	// Public loop letiables
+	loopIndex: number = 0; // Current anim frame
+	seqIndex: number = 0;  // Current type of frame change
+	id = null;             // Animation SetInterval() id
+	coroutine = null;      // Animation coroutine function
+
+	constructor(objNames: string[], sequences: string[], tickCount: number[], tickDelay: number,  actEnabled: boolean) {
+		this.objNames = objNames;
+		this.sequences = sequences;
 		this.tickCount = tickCount;
-		this.sequence = sequence;
+		this.tickDelay = tickDelay;
 		this.actEnabled = actEnabled;
 	}
 
-	// Loop letiables
-	loopIndex: number = 0;
-	seqIndex: number = 0;
-	id = null;
-	coroutine = null;
+	// Find HTML Elements used by anims
+	findObjs() {
+		for (let i = 0; i < this.objNames.length; i++)
+			this.objects[i] = document.getElementById(this.objNames[i]);
+	}
 }
 
 
+//////////
+// Init //
+//////////
 
-////////////////
-// Animations //
-////////////////
+export function animInit() {
+	// Initialize all Animations here (call findObjs on each one)
+	animPopUpDialogBox.findObjs();
+}
 
-const animPopUpDialogBox = new anim(
-    document.getElementById("dialogBox"),  // Object animated
-    33,                                    // ms between each anim frame
-    [8, 32, 8, null],                      // # of frames in each anim sequence
-	["fadeIn", "pause", "fadeOut", null],  // list of anim sequences
-	true)                                  // are actions enabled during anim?
-export function popUpDialogBox() { animPopUpDialogBox.object = document.getElementById("dialogBox");  return animPopUpDialogBox; }
+
+/////////////////////////
+// Add Animations Here //
+/////////////////////////
+
+export const animPopUpDialogBox = new anim (
+	["dialogBox"],                         // Names of objects affected by each sequence
+	["fadeIn", "pause", "fadeOut", null],  // List of anim sequences
+	[8, 32, 8, null],                      // # of frames in each anim sequence
+	33,                                    // ms between each anim frame
+	true                                   // Are actions enabled during anim?
+)

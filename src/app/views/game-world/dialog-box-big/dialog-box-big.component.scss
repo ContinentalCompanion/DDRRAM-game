@@ -24,7 +24,7 @@ $dialogBoxBigWidth: 320px;
     margin-top: calc(#{$gameWorldScreenHeight / 2} - #{$dialogBoxBigHeight / 2} - #{$borderDefaultThickness});
     margin-left: calc(#{$gameWorldScreenWidth / 2} - #{$dialogBoxBigWidth / 2} - #{$borderDefaultThickness});
 
-    z-index: 2;
+    z-index: 3;
 }
 
 #dialogBoxBig {

@@ -8,6 +8,7 @@ for %%I in ("%build%") do set "buildPath=%%~dpfI"
 cd %src%
 set "srcPath=%CD%"
 
+:: Compiles all HAML files listed in src/hamlconfig.txt
 echo Compiling [HAML]...
 for /f %%J in (./hamlconfig.txt) do call :compileHamlFile %%J
 echo Compiling [HAML] complete.
@@ -19,7 +20,6 @@ exit /b 0
 
 
 :compileHamlFile
-    :: Compiles all files in /src to same directory as compiled file
     set "hamlPath=%~dpf1"
     set "htmlOut=%hamlPath:.haml=%"
     set "fileName=%~nx1"

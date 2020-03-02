@@ -12,11 +12,15 @@
 // Imports //
 /////////////
 
-// import { popUpDialogBoxAnim } from "../animation/animation";
+// App Lets
 // import { gameLets } from "../game.lets";
-// import { uiLets, docElems } from "./ui.lets";
-// import { convertDaysToDate } from "../game-time/game-time";
 // import { gameTimeLets } from "../game-time/game-time.lets";
+// import { uiLets, docElems } from "./ui.lets";
+// import { animPopUpDialogBox } from '../../game/animation/animation.lets';
+
+// App Functions
+// import { beginAnim } from '../../game/animation/animation';
+// import { convertDaysToDate } from "../game-time/game-time";
 
 
 /////////////////
@@ -62,5 +66,5 @@
 // 	docElems.dialogBoxText.innerHTML = text;
 // 	docElems.dialogBox.style.backgroundColor = color;
 // 	docElems.dialogBoxIcon.className = icon;
-// 	popUpDialogBoxAnim();
+// 	beginAnim(animPopUpDialogBox);
 // }

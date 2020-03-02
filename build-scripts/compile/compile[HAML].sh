@@ -8,10 +8,10 @@ printf "\n"
 printf "Compiling [HAML]..."
 printf "\n\n"
 
+# Compiles all HAML files listed in src/hamlconfig.txt
 input="src/hamlconfig.txt"
 while IFS= read -r line
 do
-    # Compiles all haml files in /src to same directory as compiled file
     hamlPath="src/$line"
     htmlOut="${hamlPath%.*}"
     fileName=$(basename -- "$line")
