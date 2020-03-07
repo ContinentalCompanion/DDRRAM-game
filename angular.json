@@ -6,8 +6,51 @@
         "DDRRAM-game": {
             "projectType": "application",
             "schematics": {
+                "@schematics/angular:appShell": {
+                    "lintFix": true
+                },
+                "@schematics/angular:application": {
+                    "lintFix": true
+                },
+                "@schematics/angular:class": {
+                    "lintFix": true
+                },
                 "@schematics/angular:component": {
-                    "style": "scss"
+                    "style": "scss",
+                    "lintFix": true
+                },
+                "@schematics/angular:directive": {
+                    "lintFix": true
+                },
+                "@schematics/angular:enum": {
+                    "lintFix": true
+                },
+                "@schematics/angular:guard": {
+                    "lintFix": true
+                },
+                "@schematics/angular:interceptor": {
+                    "lintFix": true
+                },
+                "@schematics/angular:interface": {
+                    "lintFix": true
+                },
+                "@schematics/angular:library": {
+                    "lintFix": true
+                },
+                "@schematics/angular:module": {
+                    "lintFix": true
+                },
+                "@schematics/angular:pipe": {
+                    "lintFix": true
+                },
+                "@schematics/angular:service": {
+                    "lintFix": true
+                },
+                "@schematics/angular:serviceWorker": {
+                    "lintFix": true
+                },
+                "@schematics/angular:webWorker": {
+                    "lintFix": true
                 }
             },
             "root": "",
