@@ -12,29 +12,29 @@ import { DialogBoxBigComponent } from './dialog-box-big/dialog-box-big.component
 
 
 @NgModule({
-  // Core Modules
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
-
-  // App Components
-  declarations: [
-    CalendarComponent,
-    DialogBoxComponent,
-    GameButtonsComponent,
-    InventoryComponent,
-    DialogBoxBigComponent
-  ],
-
-  // App Components
-  exports: [
-    CalendarComponent,
-    DialogBoxComponent,
-    GameButtonsComponent,
-    InventoryComponent,
-    DialogBoxBigComponent
-  ]
+    // Core Modules
+    imports: [
+        CommonModule,
+        FormsModule
+    ],
+    
+    // App Components
+    declarations: [
+        CalendarComponent,
+        DialogBoxComponent,
+        GameButtonsComponent,
+        InventoryComponent,
+        DialogBoxBigComponent
+    ],
+    
+    // App Components
+    exports: [
+        CalendarComponent,
+        DialogBoxComponent,
+        GameButtonsComponent,
+        InventoryComponent,
+        DialogBoxBigComponent
+    ]
 })
 
 export class GameWorldModule { }

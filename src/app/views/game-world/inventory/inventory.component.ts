@@ -14,29 +14,29 @@ import { updateInventory } from './inventory.lets';
 
 
 @Component({
-  selector: 'inventory',
-  templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.scss']
+    selector: 'inventory',
+    templateUrl: './inventory.component.html',
+    styleUrls: ['./inventory.component.scss']
 })
 
 export class InventoryComponent implements OnDestroy {
-  // Defined in inventory.lets.ts, used in Angular HTML
-  inventoryBlocks = inventoryBlocks;
+    // Defined in inventory.lets.ts, used in Angular HTML
+    inventoryBlocks = inventoryBlocks;
+    
+    // Subscription to update properties when a gameplay action is taken
+    actionSubscription: Subscription;
+    
+    // When gameplay action is taken, update Inventory UI
+    constructor(private GameActionService: GameActionService) {
+        this.actionSubscription = GameActionService.dialogBox$.subscribe(
+            dialogBox => {
+                updateInventory();
+            }
+        );
+    }
 
-  // Subscription to update properties when a gameplay action is taken
-  actionSubscription: Subscription;
-
-  // When gameplay action is taken, update Inventory UI
-  constructor(private GameActionService: GameActionService) {
-    this.actionSubscription = GameActionService.dialogBox$.subscribe(
-      dialogBox => {
-        updateInventory();
-      }
-    );
-  }
-
-  ngOnDestroy() {
-    // Clean up event subscriptions
-    this.actionSubscription.unsubscribe();
-  }
+    ngOnDestroy() {
+        // Clean up event subscriptions
+        this.actionSubscription.unsubscribe();
+    }
 }

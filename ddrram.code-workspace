@@ -8,6 +8,7 @@
 		}
 	],
 	"settings": {
-		"workbench.tree.indent": 30
+		"workbench.tree.indent": 30,
+		"editor.detectIndentation": false
 	}
 }

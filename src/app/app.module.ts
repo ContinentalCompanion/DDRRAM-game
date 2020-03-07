@@ -17,26 +17,26 @@ import { GameActionService } from './views/game-world/game-action/game-action.se
 
 
 @NgModule({
-
-  // App Modules
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    GameWorldModule
-  ],
-
-  // Router Components
-  declarations: [
-    AppComponent,
-    MainMenuComponent,
-    GameWorldComponent,
-    HowToPlayComponent,
-  ],
-
-  // App Services
-  providers: [GameActionService],
-
-  // Start App at Main Component
-  bootstrap: [AppComponent]
+    
+    // App Modules
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        GameWorldModule
+    ],
+    
+    // Router Components
+    declarations: [
+        AppComponent,
+        MainMenuComponent,
+        GameWorldComponent,
+        HowToPlayComponent,
+    ],
+    
+    // App Services
+    providers: [GameActionService],
+    
+    // Start App at Main Component
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

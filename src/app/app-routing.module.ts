@@ -9,15 +9,15 @@ import { HowToPlayComponent } from './views/how-to-play/how-to-play.component';
 
 
 const routes: Routes = [
-  { path: '', component: MainMenuComponent },
-  { path: 'game', component: GameWorldComponent },
-  { path: 'howToPlay', component: HowToPlayComponent }
+    { path: '', component: MainMenuComponent },
+    { path: 'game', component: GameWorldComponent },
+    { path: 'howToPlay', component: HowToPlayComponent }
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 
 export class AppRoutingModule { }
