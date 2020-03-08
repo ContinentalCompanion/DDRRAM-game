@@ -2,7 +2,7 @@
 
     <div *ngFor="let inventoryBlock of inventoryBlocks; index as blockNum" class="inventoryBlock" [ngClass]="(blockNum=='0')?'firstIB':'notFirstIB'">
     <h1 class="inventoryTitle">{{ inventoryBlock.title }}</h1>
-    <div class="flexBoxH">
+    <div class="flexBox">
 
     <div *ngFor="let item of inventoryBlock.items; index as i" class="inventoryIconGroup tooltipHover">
     
@@ -22,7 +22,7 @@
 -#
     .inventoryBlock
         %h1.inventoryTitle Memes
-        .flexBoxH
+        .flexBox
 
             .inventoryIconGroup.tooltipHover
                 %i.inventoryIcon.fas.fa-clipboard-check
@@ -44,7 +44,7 @@
 
     .inventoryBlock
         %h1.inventoryTitle Cash
-        .flexBoxH
+        .flexBox
 
             .inventoryIconGroup.tooltipHover
                 %i.inventoryIcon.fas.fa-coins
@@ -66,7 +66,7 @@
 
     .inventoryBlock
         %h1.inventoryTitle Stats
-        .flexBoxH
+        .flexBox
 
             .inventoryIconGroup.tooltipHover
                 %i.inventoryIcon.fas.fa-shopping-basket

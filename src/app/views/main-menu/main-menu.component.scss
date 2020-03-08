@@ -3,6 +3,7 @@
 /////////////
 
 @import  '../../../global-styles/flexbox';
+@import '../../../global-styles/background';
 @import '../../../global-styles/ui-styles.scss';
 
 
@@ -42,12 +43,7 @@ $mainMenuButtonHeight: 40px;
 /**********/
 
 #background {
-    // Fix bottom and right margins being smaller
-    width: calc(100% - #{$borderDefaultThickness * 2});
-    height: calc(100% - #{$borderDefaultThickness * 2});
-
-    margin: 0;
-    padding: 0;
+    @include background();
 }
 
 #screenBox {

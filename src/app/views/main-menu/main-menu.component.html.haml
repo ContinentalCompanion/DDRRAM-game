@@ -5,22 +5,23 @@
     #screenBox
         #buttonBox
             <div id="playButton" class="button firstButton" [routerLink]="['/game']">
-            <div class="flexBoxV">
+            <div class="flexBox">
             <div class="buttonText"> Play </div></div></div>
             
             <div id="howToPlayButton" class="button notFirstButton" [routerLink]="['/howToPlay']">
-            <div class="flexBoxV">
+            <div class="flexBox">
             <div class="buttonText"> How to Play </div></div></div>
 
-            #loadButton.button.notFirstButton
-                .flexBoxV
-                    .buttonText Load
+            <div id="loadButton" class="button notFirstButton" [routerLink]="['/loadGame']">
+            <div class="flexBox">
+            <div class="buttonText"> Load Game </div></div></div>
+
             #optionsButton.button.notFirstButton
-                .flexBoxV
+                .flexBox
                     .buttonText Options
             #creditsButton.button.notFirstButton
-                .flexBoxV
+                .flexBox
                     .buttonText Credits
             #quitButton.button.notFirstButton
-                .flexBoxV
+                .flexBox
                     .buttonText Quit
